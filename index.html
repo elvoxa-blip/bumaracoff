@@ -29,7 +29,9 @@
     "description": "Specialty Coffee Roastery & Nusantara Single Origin.",
     "servesCuisine": "Coffee",
     "priceRange": "$$",
-    "openingHours": "Mo-Su 08:00-22:00"
+    "openingHours": "Mo-Su 08:00-22:00",
+    "telephone": "+628558090200",
+    "email": "info@bumaracoff.my.id"
   }
   </script>
 
@@ -77,7 +79,7 @@
       position: fixed;
       inset: 0;
       z-index: -2;
-      background-image: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1920&q=85');
+      background-color: #F1E6D6;
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -613,7 +615,7 @@
 
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(305px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(min(305px, 100%), 1fr));
       gap: 1.75rem;
     }
 
@@ -764,7 +766,7 @@
     /* Timeline */
     .timeline-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
       gap: 1.5rem;
       margin-top: 2.5rem;
     }
@@ -1183,19 +1185,148 @@
       transform: translateX(-50%) translateY(0) scale(1);
     }
 
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    html { -webkit-text-size-adjust: 100%; }
+    .ambient-veil { overflow: hidden; }
+    .ambient-veil::before, .ambient-veil::after { content: ""; position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.5; }
+    .ambient-veil::before { width: 380px; height: 380px; top: 8%; right: -90px; background: rgba(184, 99, 43, 0.32); }
+    .ambient-veil::after { width: 340px; height: 340px; bottom: 6%; left: -90px; background: rgba(47, 82, 56, 0.26); }
+
+    .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; z-index: 200; background: linear-gradient(90deg, var(--accent), var(--forest)); border-radius: 0 3px 3px 0; }
+
+    .features { padding: 0 0 1.5rem; }
+    .feature-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .feature { border-radius: 20px; padding: 1.15rem 1.2rem; display: flex; gap: 0.85rem; align-items: flex-start; }
+    .feature-ico { flex: none; width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent-dark); }
+    .feature strong { display: block; font-size: 0.92rem; line-height: 1.35; margin-bottom: 0.15rem; }
+    .feature span { font-size: 0.8rem; color: var(--muted); line-height: 1.5; display: block; }
+
+    .contact-link { color: var(--accent-dark); font-weight: 600; word-break: break-word; }
+    .contact-link:hover { text-decoration: underline; }
+    .cta-section { padding: 2rem 0 3rem; }
+    .cta-card { border-radius: 32px; padding: 3.2rem 2.5rem; text-align: center; background: linear-gradient(145deg, rgba(255,255,255,0.8), rgba(255,238,220,0.52)); }
+    .cta-card .section-sub { margin-inline: auto; }
+    .cta-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 1.7rem; }
+    .wa-fab { position: fixed; right: 20px; bottom: 22px; z-index: 80; width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; color: #fff; background: linear-gradient(135deg, #34c76a, #1c9a47); box-shadow: 0 14px 30px rgba(28,154,71,0.42), inset 0 1.5px 1px rgba(255,255,255,0.5); transition: transform 0.35s var(--spring); }
+    .wa-fab:hover { transform: translateY(-3px) scale(1.07); }
+    .wa-fab::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid rgba(52,199,106,0.55); animation: waPulse 2.4s ease-out infinite; }
+    @keyframes waPulse { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.55); opacity: 0; } }
+
+    .menu-btn { display: none; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.9); background: rgba(255,255,255,0.78); color: var(--ink); cursor: pointer; place-items: center; box-shadow: 0 6px 16px rgba(34,21,14,0.06), inset 0 1px 0 #fff; }
+    .mobile-menu { display: none; }
+
     @media (max-width: 900px) {
-      .hero-grid, .brew-panel, .order-grid, .footer-grid {
-        grid-template-columns: 1fr;
+      .hero-grid, .brew-panel, .order-grid, .footer-grid { grid-template-columns: 1fr; }
+      .feature-grid, .showcase-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+      .menu-btn { display: grid; }
+      .ambient-bg { background-attachment: scroll; }
+      section { padding: 3.6rem 0; }
+      .hero { padding: 2.2rem 0 3.5rem; }
+      .hero-grid { gap: 2.6rem; }
+      .hero-visual { margin-bottom: 1.4rem; }
+      .brew-panel { padding: 1.7rem; }
+      .mobile-menu {
+        pointer-events: auto; display: grid; gap: 0.2rem;
+        width: min(980px, 96%); margin: 10px auto 0; padding: 0.6rem; border-radius: 26px;
+        opacity: 0; visibility: hidden; transform: translateY(-10px) scale(0.98);
+        transition: opacity 0.3s ease, transform 0.35s var(--spring), visibility 0.3s;
+        background: linear-gradient(145deg, rgba(255,255,255,0.9), rgba(255,249,242,0.82));
       }
-      .showcase-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .nav-links {
-        display: none;
-      }
-      .ambient-bg {
-        background-attachment: scroll;
-      }
+      .mobile-menu.open { opacity: 1; visibility: visible; transform: none; }
+      .mobile-menu a { padding: 0.85rem 1.1rem; border-radius: 16px; font-weight: 600; font-size: 0.98rem; color: var(--ink); position: relative; z-index: 1; }
+      .mobile-menu a:active, .mobile-menu a:hover { background: rgba(184,99,43,0.12); color: var(--accent-dark); }
+    }
+
+    @media (max-width: 600px) {
+      header { top: 8px; padding-inline: 0.6rem; }
+      .nav-dock { height: 62px; padding: 0 0.65rem 0 1rem; }
+      header.scrolled .nav-dock { height: 56px; width: 100%; }
+      .brand { font-size: 1.3rem; gap: 0.4rem; }
+      header.scrolled .brand { font-size: 1.25rem; }
+      .brand svg { width: 24px; height: 24px; }
+      .nav-actions { gap: 0.4rem; }
+      .cart-label { display: none; }
+      .cart-btn { padding: 0.5rem 0.7rem; }
+      .lang-btn { padding: 0.3rem 0.5rem; }
+      .container { width: 90%; }
+      .hero-cta .btn { flex: 1 1 100%; }
+      .hero-stats { padding: 0.95rem; gap: 0.4rem; }
+      .stat strong { font-size: 1.2rem; }
+      .stat span { font-size: 0.7rem; display: block; line-height: 1.35; }
+      .hero-badge-float { left: 12px; right: 12px; bottom: -24px; }
+      .feature-grid { grid-template-columns: 1fr; gap: 0.7rem; }
+      .showcase-grid { gap: 0.75rem; }
+      .showcase-caption { inset: auto 8px 8px 8px; padding: 0.6rem 0.7rem; border-radius: 13px; }
+      .showcase-caption strong { font-size: 1rem; }
+      .showcase-caption span { font-size: 0.7rem; }
+      .catalog-head { align-items: flex-start; margin-bottom: 1.8rem; }
+      .filter-bar { width: 100%; justify-content: center; }
+      .filter-btn { padding: 0.5rem 0.9rem; font-size: 0.82rem; }
+      .product-art { height: 190px; }
+      .brew-tabs { display: flex; width: 100%; border-radius: 22px; }
+      .brew-tab { flex: 1 1 42%; padding: 0.55rem 0.6rem; font-size: 0.82rem; }
+      .brew-panel { padding: 1.3rem; }
+      .brew-specs { grid-template-columns: 1fr; }
+      .timer-display { font-size: 3rem; }
+      .testi-wrap, .form-card { padding: 1.4rem; border-radius: 24px; }
+      .footer-glass { padding: 1.6rem; border-radius: 24px; }
+      .cta-card { padding: 2.2rem 1.3rem; border-radius: 26px; }
+      .cta-actions .btn { width: 100%; }
+      .cart-drawer { top: 8px; right: 8px; bottom: 8px; width: calc(100% - 16px); border-radius: 24px; }
+      .wa-fab { right: 14px; bottom: 16px; width: 54px; height: 54px; }
+      .toast { max-width: calc(100% - 32px); text-align: center; bottom: 88px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* ===== Aset ilustrasi & latar ===== */
+    .ambient-veil { background: radial-gradient(circle at 15% 18%, rgba(255, 248, 238, 0.5), rgba(248, 240, 228, 0.2) 55%, rgba(242, 231, 216, 0.42) 100%); }
+    #catalog, #gallery, #story, #brew, #order { position: relative; }
+    #catalog::before, #gallery::before, #story::before, #brew::before, #order::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background-repeat: no-repeat; background-size: cover; }
+    #catalog::before { background-image: var(--art-catalog); background-position: right top; }
+    #gallery::before { background-image: var(--art-gallery); background-position: center; }
+    #story::before { background-image: var(--art-story); background-position: center bottom; }
+    #brew::before { background-image: var(--art-brew); background-position: center; }
+    #order::before { background-image: var(--art-order); background-position: left bottom; }
+
+    .story-art { margin: -1.75rem -1.75rem 1.25rem; position: relative; }
+    .story-art svg { display: block; width: 100%; height: auto; }
+    .timeline-grid { position: relative; }
+    .timeline-grid::before { content: ""; position: absolute; left: 6%; right: 6%; top: 74px; border-top: 3px dotted rgba(184, 99, 43, 0.5); }
+    .timeline-year { display: inline-block; font-size: 1.15rem; background: var(--accent-soft); border-radius: 999px; padding: 0.15rem 0.85rem; margin-bottom: 0.65rem; }
+
+    .showcase-art { position: absolute; inset: 0; }
+    .showcase-art svg { width: 100%; height: 100%; display: block; transition: transform 0.6s var(--spring); }
+    .showcase-card:hover .showcase-art svg { transform: scale(1.07); }
+
+    .brew-art { margin: -0.4rem -0.4rem 1.1rem; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.85); }
+    .brew-art svg { display: block; width: 100%; height: auto; }
+
+    .steam { transform-box: fill-box; animation: steamRise 3.6s ease-in-out infinite; }
+    @keyframes steamRise { 0% { transform: translateY(10px); opacity: 0; } 30% { opacity: 0.85; } 100% { transform: translateY(-16px); opacity: 0; } }
+    .drip { transform-box: fill-box; }
+    .timer-card.running .drip { animation: dripFall 1s ease-in infinite; }
+    @keyframes dripFall { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: 1; } 100% { transform: translateY(30px); opacity: 0; } }
+
+    @media (max-width: 900px) {
+      .timeline-grid::before { display: none; }
+    }
+
+    /* Penyempurnaan: navigasi, latar memudar, keterangan galeri di HP */
+    .nav-links a { white-space: nowrap; padding: 0.42rem 0.8rem; }
+    #catalog::before, #gallery::before, #story::before, #brew::before, #order::before {
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 16%, #000 80%, transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0, #000 16%, #000 80%, transparent 100%);
+    }
+    .brew-panel { align-items: start; }
+    @media (max-width: 600px) {
+      .showcase-caption { padding: 0.45rem 0.6rem; }
+      .showcase-caption strong { font-size: 0.92rem; }
+      .showcase-caption span { display: none; }
     }
   </style>
 </head>
@@ -1204,6 +1335,7 @@
   <!-- Ambient Coffee Photo Backdrop -->
   <div class="ambient-bg" aria-hidden="true"></div>
   <div class="ambient-veil" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <!-- Floating Scroll-Reactive Liquid Navbar -->
   <header id="topHeader">
@@ -1231,11 +1363,22 @@
           <button type="button" class="lang-btn" data-lang="en">EN</button>
         </div>
         <button type="button" class="cart-btn" id="openCartBtn" aria-label="Buka keranjang belanja">
-          <span data-i="cartLabel">Keranjang</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          <span class="cart-label" data-i="cartLabel">Keranjang</span>
           <span class="cart-badge" id="cartCount">0</span>
+        </button>
+        <button type="button" class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
       </div>
     </div>
+    <nav class="mobile-menu liquid-glass" id="mobileMenu" aria-label="Menu utama">
+      <a href="#catalog" data-i="navCatalog">Katalog Kopi</a>
+      <a href="#gallery" data-i="navGallery">Sajian</a>
+      <a href="#story" data-i="navStory">Perjalanan</a>
+      <a href="#brew" data-i="navBrew">Panduan Seduh</a>
+      <a href="#order" data-i="navOrder">Pesan</a>
+    </nav>
   </header>
 
   <!-- Hero -->
@@ -1283,6 +1426,18 @@
     </div>
   </section>
 
+  <!-- Features -->
+  <section class="features" style="padding-top:0">
+    <div class="container">
+      <div class="feature-grid reveal">
+        <div class="feature liquid-glass"><span class="feature-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c1 3 4 4.5 4 8a4 4 0 0 1-8 0c0-1.5.7-2.5 1.5-3.5C10 8.5 11 6 12 3z"/></svg></span><div><strong data-i="feat1T">Sangrai Segar</strong><span data-i="feat1S">Disangrai batch kecil setiap minggu</span></div></div>
+        <div class="feature liquid-glass"><span class="feature-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8l-9-5-9 5 9 5 9-5zM3 8v8l9 5 9-5V8M12 13v8"/></svg></span><div><strong data-i="feat2T">Kemasan One-Way Valve</strong><span data-i="feat2S">Aroma dan kesegaran terjaga hingga biji terakhir</span></div></div>
+        <div class="feature liquid-glass"><span class="feature-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg></span><div><strong data-i="feat3T">Kirim Seluruh Indonesia</strong><span data-i="feat3S">Sameday & reguler, aman sampai tujuan</span></div></div>
+        <div class="feature liquid-glass"><span class="feature-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.5A8 8 0 1 1 21 12z"/></svg></span><div><strong data-i="feat4T">Konsultasi Gratis</strong><span data-i="feat4S">Tanya rekomendasi biji via WhatsApp</span></div></div>
+      </div>
+    </div>
+  </section>
+
   <!-- Catalog -->
   <section id="catalog">
     <div class="container">
@@ -1314,28 +1469,28 @@
 
       <div class="showcase-grid reveal">
         <div class="showcase-card">
-          <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=700&q=80" alt="V60 Pour Over manual brew" loading="lazy" />
+          <div class="showcase-art" data-art="v60" role="img" aria-label="V60 Pour Over manual brew"></div>
           <div class="showcase-caption">
             <strong>V60 Manual Brew</strong>
             <span data-i="galCap1">Clean & Floral Clarity</span>
           </div>
         </div>
         <div class="showcase-card">
-          <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=700&q=80" alt="Golden Crema Espresso shot" loading="lazy" />
+          <div class="showcase-art" data-art="espresso" role="img" aria-label="Golden Crema Espresso shot"></div>
           <div class="showcase-caption">
             <strong>Golden Crema</strong>
             <span data-i="galCap2">Rich & Velvety Espresso</span>
           </div>
         </div>
         <div class="showcase-card">
-          <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=700&q=80" alt="Artisan Cappuccino Latte Art" loading="lazy" />
+          <div class="showcase-art" data-art="latte" role="img" aria-label="Artisan Cappuccino Latte Art"></div>
           <div class="showcase-caption">
             <strong>Silky Latte</strong>
             <span data-i="galCap3">Sweet Caramel & Milk</span>
           </div>
         </div>
         <div class="showcase-card">
-          <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80" alt="Japanese Iced Coffee dingin segar" loading="lazy" />
+          <div class="showcase-art" data-art="iced" role="img" aria-label="Japanese Iced Coffee dingin segar"></div>
           <div class="showcase-caption">
             <strong>Japanese Iced</strong>
             <span data-i="galCap4">Crisp & Refreshing</span>
@@ -1403,7 +1558,8 @@
         <div class="liquid-glass" style="padding:1.35rem 1.5rem; border-radius:20px; display:grid; gap:0.85rem; color:var(--muted); font-size:0.94rem;">
           <div><strong style="color:var(--ink);" data-i="infoHoursLabel">Jam Roastery & Pengiriman:</strong> <span data-i="infoHoursVal">Senin – Minggu, 08.00 – 21.00 WIB</span></div>
           <div><strong style="color:var(--ink);" data-i="infoShipLabel">Pengiriman:</strong> <span data-i="infoShipVal">Sameday / Reguler seluruh Indonesia (Kemasan One-Way Valve)</span></div>
-          <div><strong style="color:var(--ink);">WhatsApp Roastery:</strong> +62 857-0128-7242</div>
+          <div><strong style="color:var(--ink);" data-i="waLabel">WhatsApp Roastery:</strong> <a class="contact-link" href="https://wa.me/628558090200" target="_blank" rel="noopener">0855-8090-200</a></div>
+          <div><strong style="color:var(--ink);" data-i="emailLabel">Email:</strong> <a class="contact-link" href="mailto:info@bumaracoff.my.id">info@bumaracoff.my.id</a></div>
         </div>
       </div>
 
@@ -1421,8 +1577,24 @@
           <textarea id="custNote" rows="3" data-ph="phNote" placeholder="Tulis detail biji pilihan atau permintaan khusus..."></textarea>
         </div>
         <button type="submit" class="btn btn-primary" style="width:100%;" data-i="btnSendWa">Kirim Pesanan via WhatsApp</button>
+        <button type="button" class="btn btn-outline" id="sendEmailBtn" style="width:100%; margin-top:0.7rem;" data-i="btnSendMail">Kirim via Email</button>
         <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
       </form>
+    </div>
+  </section>
+
+  <!-- CTA Kontak -->
+  <section class="cta-section" id="contact">
+    <div class="container">
+      <div class="cta-card liquid-glass reveal">
+        <span class="eyebrow" data-i="ctaEyebrow">Hubungi Kami</span>
+        <h2 class="section-title" data-i="ctaT">Siap Menyeduh Kopi Terbaikmu?</h2>
+        <p class="section-sub" data-i="ctaS">Pesan biji favoritmu, tanyakan harga kedai & B2B, atau minta rekomendasi seduh langsung dari tim roaster kami.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="https://wa.me/628558090200?text=Halo%20BUMARA%20Coffee%2C%20saya%20ingin%20bertanya." target="_blank" rel="noopener"><span data-i="ctaWa">Chat WhatsApp</span>&nbsp;· 0855-8090-200</a>
+          <a class="btn btn-outline" href="mailto:info@bumaracoff.my.id"><span data-i="ctaMail">Kirim Email</span>&nbsp;· info@bumaracoff.my.id</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1447,7 +1619,8 @@
           <div>
             <strong style="color:var(--ink);" data-i="footerSocial">Terhubung</strong>
             <ul class="footer-links">
-              <li><a href="https://wa.me/6285701287242" target="_blank" rel="noopener">WhatsApp Official</a></li>
+              <li><a href="https://wa.me/628558090200" target="_blank" rel="noopener">WhatsApp 0855-8090-200</a></li>
+              <li><a href="mailto:info@bumaracoff.my.id">info@bumaracoff.my.id</a></li>
               <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram @bumaracoffee</a></li>
               <li><a href="#catalog" data-i="footerWholesale">Program B2B & Kedai Kopi</a></li>
             </ul>
@@ -1478,11 +1651,16 @@
     </div>
   </aside>
 
+  <a class="wa-fab" href="https://wa.me/628558090200?text=Halo%20BUMARA%20Coffee" target="_blank" rel="noopener" aria-label="Chat WhatsApp BUMARA Coffee">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.7 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4z"/></svg>
+  </a>
+
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script>
     (() => {
-      const WA_NUMBER = '6285701287242';
+      const WA_NUMBER = '628558090200';
+      const CONTACT_EMAIL = 'info@bumaracoff.my.id';
       let currentLang = 'id';
       let activeFilter = 'all';
       let activeBrewIndex = 0;
@@ -1508,6 +1686,15 @@
           navBrew: 'Panduan Seduh',
           navOrder: 'Pesan',
           cartLabel: 'Keranjang',
+          feat1T: 'Sangrai Segar', feat1S: 'Disangrai batch kecil setiap minggu',
+          feat2T: 'Kemasan One-Way Valve', feat2S: 'Aroma dan kesegaran terjaga hingga biji terakhir',
+          feat3T: 'Kirim Seluruh Indonesia', feat3S: 'Sameday & reguler, aman sampai tujuan',
+          feat4T: 'Konsultasi Gratis', feat4S: 'Tanya rekomendasi biji via WhatsApp',
+          ctaEyebrow: 'Hubungi Kami', ctaT: 'Siap Menyeduh Kopi Terbaikmu?',
+          ctaS: 'Pesan biji favoritmu, tanyakan harga kedai & B2B, atau minta rekomendasi seduh langsung dari tim roaster kami.',
+          ctaWa: 'Chat WhatsApp', ctaMail: 'Kirim Email', btnSendMail: 'Kirim via Email',
+          waLabel: 'WhatsApp Roastery:', emailLabel: 'Email:',
+          mailSubject: 'Pesanan / Pertanyaan BUMARA Coffee',
           heroEyebrow: 'Specialty Nusantara Roastery',
           heroTitle: 'Setiap Biji Menyimpan <em>Cerita Tanah</em> Nusantara',
           heroDesc: 'Dipetik dari dataran tinggi pilihan Indonesia dan disangrai dalam batch kecil setiap minggu untuk menjaga karakter rasa yang jujur dan aromatik.',
@@ -1581,6 +1768,15 @@
           navBrew: 'Brew Guide',
           navOrder: 'Order',
           cartLabel: 'Cart',
+          feat1T: 'Freshly Roasted', feat1S: 'Small batches roasted every week',
+          feat2T: 'One-Way Valve Bags', feat2S: 'Aroma and freshness locked in to the last bean',
+          feat3T: 'Nationwide Shipping', feat3S: 'Same-day & regular, delivered safely',
+          feat4T: 'Free Consultation', feat4S: 'Ask for bean recommendations on WhatsApp',
+          ctaEyebrow: 'Get in Touch', ctaT: 'Ready to Brew Your Best Cup?',
+          ctaS: 'Order your favorite beans, ask about cafe & B2B pricing, or get brew advice straight from our roasting team.',
+          ctaWa: 'Chat on WhatsApp', ctaMail: 'Send Email', btnSendMail: 'Send via Email',
+          waLabel: 'Roastery WhatsApp:', emailLabel: 'Email:',
+          mailSubject: 'BUMARA Coffee Order / Inquiry',
           heroEyebrow: 'Specialty Nusantara Roastery',
           heroTitle: 'Every Bean Holds a <em>Story of Indonesian</em> Soil',
           heroDesc: 'Harvested from select Indonesian highlands and roasted in small weekly batches to preserve honest, aromatic flavor profiles.',
@@ -1736,6 +1932,64 @@
           defaultRoast: 'Medium'
         }
       ];
+
+      // Foto produk buatan sendiri (SVG): kemasan kopi BUMARA per varian
+      const BAGS = {
+        'temanggung-natural': { a: '#B5532A', b: '#7E3216', l1: 'Sindoro', l2: 'Temanggung Natural', sub: 'SINGLE ORIGIN' },
+        'gayo-honey': { a: '#8E2F45', b: '#5B1727', l1: 'Aceh Gayo', l2: 'Black Honey', sub: 'SINGLE ORIGIN' },
+        'toraja-washed': { a: '#2F5238', b: '#1B3322', l1: 'Toraja Sapan', l2: 'Washed', sub: 'SINGLE ORIGIN' },
+        'bumara-crema': { a: '#3A2216', b: '#1E100A', l1: 'Golden Crema', l2: 'Blend', sub: 'HOUSE BLEND' },
+        'bumara-dusk': { a: '#34456B', b: '#1D2A47', l1: 'Nusantara Dusk', l2: 'Blend', sub: 'HOUSE BLEND' },
+        'flores-bajawa': { a: '#2E7A78', b: '#1A4D4B', l1: 'Flores Bajawa', l2: 'Semi-Washed', sub: 'SINGLE ORIGIN' }
+      };
+      const BEAN_POS = [[78,352,-30,1],[128,392,22,.82],[478,384,40,1],[536,338,-22,.86],[432,412,10,.7],[150,322,62,.7],[548,398,-50,.76],[96,300,14,.6],[516,292,-8,.62]];
+      const packshot = (p, roast, size) => {
+        const b = BAGS[p.id];
+        if (!b) return FALLBACK_IMG;
+        const lv = { Light: 1, Medium: 2, Dark: 3 }[roast] || 2;
+        const weight = size === '1kg' ? '1 KG' : size.replace('g', ' G');
+        const beans = BEAN_POS.map(([x, y, r, s]) =>
+          `<g transform="translate(${x} ${y}) rotate(${r}) scale(${s})"><ellipse rx="22" ry="14" fill="#4A2A18"/><ellipse rx="22" ry="14" fill="url(#bn)" opacity=".55"/><path d="M-19 0C-8-5 8 5 19 0" stroke="#1E0E06" stroke-width="2.4" fill="none" stroke-linecap="round"/></g>`
+        ).join('');
+        const dots = [1, 2, 3].map(i =>
+          `<circle cx="${326 + i * 15}" cy="333" r="4.6" fill="${i <= lv ? b.a : 'none'}" stroke="${b.a}" stroke-width="1.6"/>`
+        ).join('');
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 430" width="600" height="430">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6ECDD"/><stop offset="1" stop-color="#E4D0B6"/></linearGradient>
+<linearGradient id="bag" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${b.b}"/><stop offset=".38" stop-color="${b.a}"/><stop offset=".62" stop-color="${b.a}"/><stop offset="1" stop-color="${b.b}"/></linearGradient>
+<radialGradient id="bn" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#C98B5A"/><stop offset="1" stop-color="#4A2A18" stop-opacity="0"/></radialGradient>
+<filter id="bl" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>
+</defs>
+<rect width="600" height="430" fill="url(#bg)"/>
+<circle cx="300" cy="215" r="178" fill="#fff" opacity=".38"/>
+<circle cx="300" cy="215" r="128" fill="#fff" opacity=".28"/>
+<ellipse cx="300" cy="398" rx="160" ry="14" fill="#2A190E" opacity=".35" filter="url(#bl)"/>
+${beans}
+<path d="M196 72Q196 52 216 50L384 50Q404 52 404 72L413 372Q413 394 392 396L208 396Q187 394 187 372Z" fill="url(#bag)"/>
+<path d="M196 72Q196 52 216 50L384 50Q404 52 404 72L406 100L194 100Z" fill="#000" opacity=".1"/>
+<rect x="194" y="50" width="212" height="26" rx="10" fill="#000" opacity=".16"/>
+<path d="M200 56h200M200 62h200M200 68h200" stroke="#fff" stroke-opacity=".18" stroke-width="1.2"/>
+<circle cx="300" cy="104" r="12" fill="#000" opacity=".25"/>
+<circle cx="300" cy="104" r="9" fill="${b.b}" stroke="#fff" stroke-opacity=".5" stroke-width="1.6"/>
+<circle cx="300" cy="104" r="3.4" fill="#fff" opacity=".6"/>
+<rect x="212" y="128" width="176" height="226" rx="16" fill="#F9F2E6"/>
+<rect x="219" y="135" width="162" height="212" rx="11" fill="none" stroke="${b.a}" stroke-opacity=".35" stroke-width="1.2"/>
+<g transform="translate(300 168)"><circle r="15" fill="none" stroke="${b.a}" stroke-width="2"/><path d="M0-9C-5-4-5 6 0 10C5 6 5-4 0-9Z" fill="none" stroke="#2F5238" stroke-width="1.8"/><path d="M0-8C-1.5-3 1.5 3 0 9" stroke="${b.a}" stroke-width="1.3" fill="none"/></g>
+<text x="300" y="207" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="21" letter-spacing="4.5" fill="#22150E">BUMARA</text>
+<text x="300" y="221" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="7.5" letter-spacing="3.2" fill="${b.a}">COFFEE ROASTERY</text>
+<path d="M262 234h76" stroke="${b.a}" stroke-opacity=".5" stroke-width="1.2"/>
+<text x="300" y="262" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="17" fill="${b.b}">${b.l1}</text>
+<text x="300" y="283" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="600" font-size="13" fill="${b.b}">${b.l2}</text>
+<text x="300" y="306" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="7.5" letter-spacing="2.4" fill="#5C4B3E">${b.sub}</text>
+<path d="M234 318h132" stroke="${b.a}" stroke-opacity=".3" stroke-width="1"/>
+<text x="236" y="336" font-family="Arial, sans-serif" font-weight="700" font-size="8.5" letter-spacing="1.6" fill="#22150E">${roast.toUpperCase()} ROAST</text>
+${dots}
+<text x="300" y="378" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="10.5" letter-spacing="2.6" fill="#fff" fill-opacity=".85">NET ${weight}</text>
+<path d="M204 74Q199 220 207 372" stroke="#fff" stroke-opacity=".16" stroke-width="5" fill="none" stroke-linecap="round"/>
+</svg>`;
+        return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+      };
 
       const SIZE_MULTIPLIER = {
         '200g': 1,
@@ -1908,6 +2162,232 @@
         }
       ];
 
+      // ===== Aset ilustrasi buatan sendiri (SVG): satu bahasa visual untuk semua proses =====
+      const AC = { terra: '#B8632B', terraD: '#8F4719', forest: '#2F5238', leaf: '#4C7A56', ink: '#22150E', bean: '#4A2A18', gold: '#D9A441', cherry: '#C0392B' };
+      const toUri = (svg) => 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+      const leafP = (x, y, r, s, f) => `<g transform="translate(${x} ${y}) rotate(${r}) scale(${s})"><path d="M0 0C14-20 46-20 64 0C46 20 14 20 0 0Z" fill="${f}"/><path d="M4 0H58" stroke="#fff" stroke-opacity=".28" stroke-width="2"/></g>`;
+      const beanP = (x, y, r, s, op) => `<g transform="translate(${x} ${y}) rotate(${r}) scale(${s})" opacity="${op || 1}"><ellipse rx="22" ry="14" fill="${AC.bean}"/><path d="M-19 0C-8-5 8 5 19 0" stroke="#1E0E06" stroke-width="2.4" fill="none" stroke-linecap="round"/></g>`;
+      const cherryP = (x, y, s) => `<g transform="translate(${x} ${y}) scale(${s || 1})"><circle r="10" fill="${AC.cherry}"/><circle cx="-3" cy="-3.5" r="3" fill="#fff" opacity=".4"/><path d="M0-10q2-6 6-7" stroke="${AC.forest}" stroke-width="2" fill="none" stroke-linecap="round"/></g>`;
+      const steamP = (x, y, delay, h, col) => `<path class="steam" style="animation-delay:${delay}s" d="M${x} ${y}c-9 -${h * 0.25} 9 -${h * 0.5} 0 -${h * 0.75}s9 -${h * 0.9} 0 -${h}" stroke="${col || '#fff'}" stroke-opacity=".8" stroke-width="5" fill="none" stroke-linecap="round"/>`;
+      const sunP = (x, y, r) => `<circle cx="${x}" cy="${y}" r="${r * 1.8}" fill="#F6B968" opacity=".3"/><circle cx="${x}" cy="${y}" r="${r}" fill="#F2A64E"/>`;
+
+      // 1) Jejak Langkah: panen, proses, sangrai, cangkir
+      const storyArt = (i) => {
+        const sky = ['#FBE6C4', '#FCE9C9', '#F5D3A6', '#F4E7D3'][i];
+        const lbl = ['Ilustrasi panen buah kopi merah di kebun dataran tinggi', 'Ilustrasi pengeringan biji kopi di para-para', 'Ilustrasi mesin sangrai drum dengan biji kopi', 'Ilustrasi secangkir kopi hangat siap dicicipi'][i];
+        let g = '';
+        if (i === 0) {
+          g = sunP(398, 66, 26) +
+            `<path d="M0 190L90 110L160 170L250 90L350 175L430 120L480 160V270H0Z" fill="#D7B58C"/>
+<path d="M0 215Q120 150 240 200T480 190V270H0Z" fill="${AC.leaf}"/>
+<path d="M0 240Q140 200 260 235T480 225V270H0Z" fill="${AC.forest}"/>
+<path d="M70 270Q150 190 260 120" stroke="#5A3A22" stroke-width="7" fill="none" stroke-linecap="round"/>
+<path d="M150 215Q210 200 300 180" stroke="#5A3A22" stroke-width="5" fill="none" stroke-linecap="round"/>
+${leafP(160, 196, -40, 1.1, AC.forest)}${leafP(205, 155, -60, 1, AC.leaf)}${leafP(250, 125, -20, 1, AC.forest)}${leafP(200, 205, 10, 1, AC.leaf)}${leafP(270, 175, -30, .9, AC.forest)}${leafP(110, 236, -70, 1, AC.leaf)}
+${cherryP(232, 150)}${cherryP(248, 162)}${cherryP(224, 168)}${cherryP(292, 198)}${cherryP(306, 208)}${cherryP(180, 228)}${cherryP(194, 240)}`;
+        } else if (i === 1) {
+          const rays = [0, 1, 2, 3, 4, 5, 6, 7].map(k => { const a = k * Math.PI / 4; return `<line x1="${84 + Math.cos(a) * 38}" y1="${62 + Math.sin(a) * 38}" x2="${84 + Math.cos(a) * 54}" y2="${62 + Math.sin(a) * 54}" stroke="#F2A64E" stroke-width="4" stroke-linecap="round"/>`; }).join('');
+          const bed = (x, w, h) => {
+            let b = '';
+            for (let k = 1; k <= 10; k++) { const t = k / 11; b += `<ellipse cx="${(x + w * t).toFixed(1)}" cy="${(186 - 4 * h * t * (1 - t) * 0.6 - 3).toFixed(1)}" rx="5.5" ry="3.6" fill="#A56B42" transform="rotate(${(k * 29) % 70 - 35} ${(x + w * t).toFixed(1)} ${(186 - 4 * h * t * (1 - t) * 0.6 - 3).toFixed(1)})"/>`; }
+            return `<path d="M${x + 12} 193v44M${x + w - 12} 193v44" stroke="#6B4429" stroke-width="6" stroke-linecap="round"/><path d="M${x + 4} 186Q${x + w / 2} ${186 - h * 2} ${x + w - 4} 186Z" fill="#7A4A2B"/>${b}<rect x="${x}" y="184" width="${w}" height="9" rx="3" fill="#8B5E3C"/>`;
+          };
+          g = rays + sunP(84, 62, 26) +
+            `<path d="M0 175L110 120L200 165L300 105L400 160L480 130V270H0Z" fill="#E6CDA6"/>
+<rect y="236" width="480" height="34" fill="#C9A075"/><rect y="236" width="480" height="5" fill="#B38A5E"/>` + bed(36, 196, 38) + bed(256, 190, 26);
+        } else if (i === 2) {
+          g = `<circle cx="240" cy="140" r="132" fill="#F6B968" opacity=".28"/><circle cx="240" cy="140" r="88" fill="#F6B968" opacity=".25"/>
+<path d="M190 72L214 30H266L290 72Z" fill="#5A3A22"/><rect x="208" y="22" width="64" height="11" rx="5" fill="#8B5E3C"/>
+<rect x="138" y="70" width="204" height="150" rx="20" fill="#3A2216"/>
+<rect x="138" y="70" width="204" height="150" rx="20" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="3"/>
+<circle cx="240" cy="142" r="52" fill="#1E100A" stroke="${AC.terra}" stroke-width="7"/>
+${beanP(222, 156, 20, .72)}${beanP(256, 160, -30, .72)}${beanP(238, 128, 70, .72)}${beanP(268, 134, 10, .6)}${beanP(212, 130, -20, .6)}
+<circle cx="170" cy="102" r="15" fill="#F6EFE6"/><path d="M170 102L178 94" stroke="${AC.terraD}" stroke-width="3" stroke-linecap="round"/><circle cx="170" cy="102" r="2.5" fill="${AC.terraD}"/>
+<circle cx="310" cy="102" r="15" fill="#F6EFE6"/><path d="M310 102L303 92" stroke="${AC.terraD}" stroke-width="3" stroke-linecap="round"/><circle cx="310" cy="102" r="2.5" fill="${AC.terraD}"/>
+<ellipse cx="240" cy="238" rx="118" ry="19" fill="#5A3A22"/><ellipse cx="240" cy="233" rx="100" ry="13" fill="#7A4A2B"/>
+${beanP(200, 232, 10, .6)}${beanP(228, 236, -20, .6)}${beanP(262, 232, 30, .6)}${beanP(288, 236, 0, .55)}${beanP(176, 238, -10, .5)}
+<path d="M168 220q-8-14 0-26q10 10 0 26z" fill="#F2A64E"/><path d="M312 220q-8-14 0-26q10 10 0 26z" fill="#F2A64E"/>
+${steamP(240, 20, 0, 40)}${steamP(256, 20, 1.2, 36)}`;
+        } else {
+          g = `<circle cx="250" cy="150" r="120" fill="#fff" opacity=".4"/>
+<g transform="translate(70 70)"><path d="M0 20Q0 0 20 0H80Q100 0 100 20L108 140Q108 160 88 160H12Q-8 160 -8 140Z" fill="${AC.terra}"/><rect x="-4" y="0" width="108" height="16" rx="6" fill="#000" opacity=".15"/><circle cx="50" cy="38" r="8" fill="${AC.terraD}" stroke="#fff" stroke-opacity=".5" stroke-width="2"/><rect x="14" y="62" width="72" height="68" rx="9" fill="#F9F2E6"/><circle cx="50" cy="88" r="11" fill="none" stroke="${AC.terra}" stroke-width="2"/><path d="M50 81C46 86 46 92 50 97C54 92 54 86 50 81Z" fill="none" stroke="${AC.forest}" stroke-width="1.6"/><path d="M26 112h48" stroke="${AC.terra}" stroke-width="2" stroke-opacity=".6"/></g>
+<ellipse cx="270" cy="232" rx="104" ry="17" fill="#fff"/><ellipse cx="270" cy="230" rx="104" ry="17" fill="none" stroke="#E1CDB3" stroke-width="2"/>
+<path d="M205 142H335Q335 222 270 226Q205 222 205 142Z" fill="#fff" stroke="#E1CDB3" stroke-width="2"/>
+<path d="M335 160q40 0 34 30q-6 26-36 24" stroke="#fff" stroke-width="11" fill="none" stroke-linecap="round"/>
+<path d="M335 160q40 0 34 30q-6 26-36 24" stroke="#E1CDB3" stroke-width="2" fill="none" stroke-linecap="round" opacity=".7"/>
+<ellipse cx="270" cy="142" rx="65" ry="12" fill="#6B3E26"/><ellipse cx="270" cy="142" rx="65" ry="12" fill="none" stroke="#fff" stroke-width="3"/>
+<ellipse cx="256" cy="140" rx="30" ry="4.5" fill="#A56B42" opacity=".6"/>
+${steamP(248, 120, 0, 46, '#D8BFA0')}${steamP(272, 120, 1, 40, '#D8BFA0')}${steamP(294, 120, 2, 44, '#D8BFA0')}
+<g transform="translate(402 214) rotate(-30)"><rect x="-4" y="-3" width="62" height="6" rx="3" fill="#B9B4AB"/><ellipse cx="-8" cy="0" rx="12" ry="7" fill="#CFCAC1"/></g>
+${beanP(70, 246, 20, .8)}${beanP(104, 250, -30, .7)}${leafP(404, 252, -150, .8, AC.leaf)}`;
+        }
+        return `<svg viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${lbl}" preserveAspectRatio="xMidYMid slice"><rect width="480" height="270" fill="${sky}"/>${g}</svg>`;
+      };
+
+      // 2) Ragam Sajian: V60, espresso, latte, iced
+      const galleryArt = (name) => {
+        const head = (c1, c2, id, label) => `<svg viewBox="0 0 600 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${label}" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="${id}bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient></defs><rect width="600" height="800" fill="url(#${id}bg)"/>`;
+        if (name === 'v60') {
+          return head('#E4EEE1', '#C5DAC9', 'gv', 'Ilustrasi seduh manual V60') + `
+<circle cx="300" cy="400" r="270" fill="#fff" opacity=".35"/>
+<rect y="716" width="600" height="84" fill="${AC.forest}" opacity=".1"/>
+<ellipse cx="300" cy="712" rx="170" ry="14" fill="#22150E" opacity=".2"/>
+<path d="M240 430h120l2 32q62 30 60 104l-6 84q-4 56-56 56H240q-52 0-56-56l-6-84q-2-74 60-104z" fill="#fff" fill-opacity=".45" stroke="#fff" stroke-width="3"/>
+<path d="M185 606h230l-4 44q-4 52-52 52H241q-48 0-52-52z" fill="#5A2F1A"/>
+<path d="M206 520q-14 40-10 110" stroke="#fff" stroke-opacity=".55" stroke-width="7" fill="none" stroke-linecap="round"/>
+<path d="M440 338q60 4 52 54q-6 36-62 40" stroke="#EDE5D9" stroke-width="16" fill="none" stroke-linecap="round"/>
+<path d="M168 322h264l-82 118H250z" fill="#F7F2EA" stroke="#D9CFC1" stroke-width="3"/>
+<path d="M214 332l54 108M262 332l30 108M338 332l-30 108M386 332l-54 108" stroke="#D9CFC1" stroke-width="3"/>
+<rect x="154" y="310" width="292" height="18" rx="9" fill="#EDE5D9"/>
+<ellipse cx="300" cy="316" rx="128" ry="9" fill="#7A4A2B"/><ellipse cx="300" cy="316" rx="96" ry="6" fill="#B07A47"/>
+<path d="M208 176q56-6 72 40q6 26 12 54" stroke="#C27A3E" stroke-width="11" fill="none" stroke-linecap="round"/>
+<path d="M52 118q0-46 48-46h66q46 0 46 48l-8 62q-4 20-34 20H96q-30 0-34-22z" fill="#C27A3E"/>
+<path d="M70 120q4-30 34-34" stroke="#fff" stroke-opacity=".4" stroke-width="6" fill="none" stroke-linecap="round"/>
+<rect x="96" y="60" width="76" height="13" rx="6" fill="${AC.terraD}"/><circle cx="134" cy="54" r="9" fill="#3A2216"/>
+<path d="M56 104q-48 6-42 56q4 24 40 26" stroke="#3A2216" stroke-width="12" fill="none" stroke-linecap="round"/>
+<path d="M292 270q4 30 8 46" stroke="#8EC5E8" stroke-width="6" fill="none" stroke-linecap="round"/>
+<circle class="drip" cx="300" cy="470" r="5" fill="#8EC5E8"/><circle class="drip" style="animation-delay:.5s" cx="300" cy="470" r="4" fill="#8EC5E8"/>
+${steamP(120, 48, 0, 46)}${steamP(150, 48, 1.4, 40)}
+${leafP(60, 740, -30, 1.2, AC.leaf)}${beanP(500, 750, 20, 1.1)}${beanP(540, 700, -30, .9)}${beanP(450, 770, 10, .8)}</svg>`;
+        }
+        if (name === 'espresso') {
+          return head('#3E2518', '#1B0F09', 'ge', 'Ilustrasi espresso dengan crema keemasan') + `
+<defs><radialGradient id="geglow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#D9A441" stop-opacity=".45"/><stop offset="1" stop-color="#D9A441" stop-opacity="0"/></radialGradient><radialGradient id="gecr" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#F0C57A"/><stop offset=".6" stop-color="#C98A3F"/><stop offset="1" stop-color="#8F5420"/></radialGradient></defs>
+<circle cx="300" cy="420" r="300" fill="url(#geglow)"/>
+<ellipse cx="300" cy="566" rx="190" ry="38" fill="#000" opacity=".35"/>
+<ellipse cx="300" cy="556" rx="180" ry="36" fill="#F1E5D2"/><ellipse cx="300" cy="548" rx="124" ry="22" fill="#E2D2B6"/>
+<path d="M410 440q62 0 58 52q-4 38-66 42" stroke="#F8F0E3" stroke-width="18" fill="none" stroke-linecap="round"/>
+<path d="M190 410H410Q410 508 358 544Q300 562 242 544Q190 508 190 410Z" fill="#F8F0E3"/>
+<path d="M214 440q4 70 40 92" stroke="#fff" stroke-width="8" fill="none" stroke-linecap="round" opacity=".7"/>
+<ellipse cx="300" cy="410" rx="110" ry="28" fill="#F8F0E3"/>
+<ellipse cx="300" cy="412" rx="98" ry="22" fill="url(#gecr)"/>
+<path d="M240 412q30-12 62-4t58 4M262 420q38 6 76-6" stroke="#8F4F1D" stroke-opacity=".5" stroke-width="3" fill="none" stroke-linecap="round"/>
+${steamP(256, 360, 0, 70)}${steamP(300, 356, 1.1, 80)}${steamP(344, 360, 2.1, 70)}
+${beanP(100, 640, 20, 1.2)}${beanP(172, 700, -30, 1)}${beanP(486, 690, 40, 1.1)}${beanP(540, 626, -20, .9)}${beanP(86, 560, 60, .8)}${beanP(520, 540, 10, .7)}
+<g fill="#D9A441" opacity=".9"><path d="M130 180l6 16 16 6-16 6-6 16-6-16-16-6 16-6z"/><path d="M480 250l4 11 11 4-11 4-4 11-4-11-11-4 11-4z"/><path d="M420 130l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/></g></svg>`;
+        }
+        if (name === 'latte') {
+          const heart = (s, f) => `<path d="M300 ${400 + 62 * s}C${300 - 96 * s} ${400 + 4 * s} ${300 - 74 * s} ${400 - 72 * s} 300 ${400 - 28 * s}C${300 + 74 * s} ${400 - 72 * s} ${300 + 96 * s} ${400 + 4 * s} 300 ${400 + 62 * s}Z" fill="${f}"/>`;
+          return head('#F8E3D3', '#E8C3A8', 'gl', 'Ilustrasi latte art berbentuk hati') + `
+<defs><radialGradient id="glcf" cx=".5" cy=".4" r=".7"><stop offset="0" stop-color="#C58A57"/><stop offset="1" stop-color="#8A5530"/></radialGradient></defs>
+<circle cx="300" cy="400" r="258" fill="#000" opacity=".08"/>
+<circle cx="300" cy="396" r="250" fill="#fff"/><circle cx="300" cy="396" r="206" fill="#F8F1E8" stroke="#E8D9C8" stroke-width="3"/>
+<rect x="452" y="372" width="96" height="46" rx="23" fill="#fff" stroke="#E8D9C8" stroke-width="3"/>
+<circle cx="300" cy="396" r="172" fill="#fff" stroke="#E3D3BF" stroke-width="5"/>
+<circle cx="300" cy="396" r="144" fill="url(#glcf)"/>
+<g transform="translate(0 -4)">${heart(1.55, '#FBF4E8')}${heart(1.22, '#B27846')}${heart(.95, '#FBF4E8')}${heart(.66, '#B27846')}${heart(.4, '#FBF4E8')}</g>
+<path d="M300 292V470" stroke="#8A5530" stroke-width="5" stroke-linecap="round"/>
+<path d="M190 340q22-40 68-58" stroke="#fff" stroke-opacity=".4" stroke-width="7" fill="none" stroke-linecap="round"/>
+<g transform="translate(110 668) rotate(-24)"><rect x="0" y="-4" width="108" height="8" rx="4" fill="#CFCAC1"/><ellipse cx="-6" cy="0" rx="18" ry="11" fill="#DCD7CE"/></g>
+${beanP(70, 130, 20, 1)}${beanP(530, 120, -30, .9)}${beanP(540, 720, 30, 1)}${leafP(30, 730, -40, 1.1, AC.leaf)}</svg>`;
+        }
+        return head('#DCEFEB', '#B8D7D2', 'gi', 'Ilustrasi Japanese iced coffee dengan es batu') + `
+<defs><linearGradient id="gicf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9A6238"/><stop offset="1" stop-color="#3A2216"/></linearGradient></defs>
+<circle cx="300" cy="420" r="260" fill="#fff" opacity=".4"/>
+<ellipse cx="300" cy="730" rx="150" ry="16" fill="#22150E" opacity=".22"/>
+<path d="M205 230H395L378 700Q376 728 350 728H250Q224 728 222 700Z" fill="#fff" fill-opacity=".38" stroke="#fff" stroke-width="4"/>
+<path d="M210 336H390L377 696Q375 718 350 718H250Q225 718 223 696Z" fill="url(#gicf)" opacity=".94"/>
+<g fill="#fff" fill-opacity=".5" stroke="#fff" stroke-opacity=".9" stroke-width="3">
+<rect x="228" y="296" width="70" height="70" rx="12" transform="rotate(-12 263 331)"/>
+<rect x="306" y="282" width="76" height="76" rx="12" transform="rotate(10 344 320)"/>
+<rect x="262" y="372" width="66" height="66" rx="12" transform="rotate(-6 295 405)"/>
+<rect x="334" y="384" width="60" height="60" rx="11" transform="rotate(16 364 414)"/>
+<rect x="232" y="440" width="58" height="58" rx="11" transform="rotate(8 261 469)"/></g>
+<path d="M362 110L316 570" stroke="${AC.cherry}" stroke-width="15" stroke-linecap="round"/>
+<path d="M360 128L352 196M352 230L344 298M342 330L336 380" stroke="#fff" stroke-opacity=".7" stroke-width="15" stroke-linecap="butt"/>
+<path d="M226 260Q216 480 238 690" stroke="#fff" stroke-opacity=".5" stroke-width="8" fill="none" stroke-linecap="round"/>
+<g fill="#fff" fill-opacity=".6"><ellipse cx="392" cy="300" rx="4" ry="7"/><ellipse cx="384" cy="360" rx="3.5" ry="6"/><ellipse cx="380" cy="440" rx="4" ry="7"/><ellipse cx="212" cy="360" rx="3" ry="6"/></g>
+${leafP(70, 740, -30, 1.1, AC.leaf)}${beanP(520, 760, 20, 1)}${beanP(480, 700, -20, .8)}</svg>`;
+      };
+
+      // 3) Laboratorium Seduh: ilustrasi alat per metode (drip animasi saat timer berjalan)
+      const brewArt = (i) => {
+        const lbl = ['Ilustrasi V60 dan server', 'Ilustrasi gelas tubruk klasik', 'Ilustrasi mesin espresso dan cangkir', 'Ilustrasi Japanese iced coffee'][i];
+        let g = '';
+        if (i === 0) {
+          g = `<path d="M198 14q4 28 2 56" stroke="#8EC5E8" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M120 62h160l-34 56h-92z" fill="#F7F2EA" stroke="#D9CFC1" stroke-width="3"/><rect x="112" y="56" width="176" height="11" rx="5" fill="#EDE5D9"/>
+<ellipse cx="200" cy="60" rx="78" ry="6" fill="#7A4A2B"/>
+<path d="M164 118h72l4 14q36 18 34 56l-2 18q-2 18-22 18H150q-20 0-22-18l-2-18q-2-38 34-56z" fill="#fff" fill-opacity=".5" stroke="#fff" stroke-width="2"/>
+<path d="M130 186h140l-2 16q-2 18-22 18H154q-20 0-22-18z" fill="#5A2F1A"/>
+<circle class="drip" cx="200" cy="140" r="4" fill="#7A4A2B"/><circle class="drip" style="animation-delay:.45s" cx="200" cy="140" r="3.4" fill="#7A4A2B"/>
+<path d="M290 74q36 2 32 28" stroke="#EDE5D9" stroke-width="10" fill="none" stroke-linecap="round"/>`;
+        } else if (i === 1) {
+          g = `<ellipse cx="196" cy="222" rx="96" ry="10" fill="#fff"/><ellipse cx="196" cy="222" rx="96" ry="10" fill="none" stroke="#E1CDB3" stroke-width="2"/>
+<path d="M258 92q44 0 40 42q-4 34-42 34" stroke="#fff" stroke-width="9" fill="none" stroke-linecap="round"/>
+<path d="M136 62h120l-8 148q-2 14-16 14h-72q-14 0-16-14z" fill="#fff" fill-opacity=".6" stroke="#fff" stroke-width="3"/>
+<path d="M140 92h112l-6 118q-2 12-14 12h-72q-12 0-14-12z" fill="#6B3E26"/>
+<path d="M144 198h104l-2 12q-2 12-14 12h-72q-12 0-14-12z" fill="#2A170E"/>
+<ellipse cx="196" cy="92" rx="56" ry="7" fill="#B88555"/><ellipse cx="184" cy="91" rx="22" ry="3" fill="#E3C49B" opacity=".8"/>
+${steamP(172, 50, 0, 34)}${steamP(198, 50, 1, 30)}${steamP(224, 50, 2, 34)}`;
+        } else if (i === 2) {
+          g = `<rect x="118" y="16" width="164" height="34" rx="10" fill="#3A2216"/><rect x="128" y="22" width="144" height="5" rx="2.5" fill="#fff" opacity=".12"/>
+<path d="M142 50h116l-8 28h-100z" fill="${AC.terra}"/><rect x="172" y="78" width="10" height="9" rx="2" fill="#3A2216"/><rect x="218" y="78" width="10" height="9" rx="2" fill="#3A2216"/>
+<path d="M146 64L54 80" stroke="#22150E" stroke-width="14" stroke-linecap="round"/>
+<path d="M177 88V168M223 88V168" stroke="${AC.terraD}" stroke-width="4" stroke-linecap="round"/>
+<circle class="drip" cx="177" cy="150" r="3.4" fill="${AC.terraD}"/><circle class="drip" style="animation-delay:.4s" cx="223" cy="150" r="3.4" fill="${AC.terraD}"/>
+<ellipse cx="200" cy="226" rx="86" ry="10" fill="#fff"/>
+<path d="M152 160H248Q248 214 200 218Q152 214 152 160Z" fill="#fff" stroke="#E1CDB3" stroke-width="2"/>
+<ellipse cx="200" cy="160" rx="48" ry="9" fill="#C98A3F"/><ellipse cx="192" cy="159" rx="22" ry="3.5" fill="#F0C57A" opacity=".8"/>
+<path d="M248 172q28 0 24 22q-4 18-26 16" stroke="#fff" stroke-width="8" fill="none" stroke-linecap="round"/>`;
+        } else {
+          g = `<path d="M120 22h160l-34 52h-92z" fill="#F7F2EA" stroke="#D9CFC1" stroke-width="3"/><rect x="112" y="16" width="176" height="11" rx="5" fill="#EDE5D9"/>
+<ellipse cx="200" cy="20" rx="78" ry="6" fill="#7A4A2B"/>
+<circle class="drip" cx="200" cy="96" r="4" fill="#7A4A2B"/><circle class="drip" style="animation-delay:.45s" cx="200" cy="96" r="3.4" fill="#7A4A2B"/>
+<path d="M146 100h108l-10 112q-1 14-15 14h-58q-14 0-15-14z" fill="#fff" fill-opacity=".5" stroke="#fff" stroke-width="3"/>
+<path d="M150 136h100l-8 74q-1 12-13 12h-58q-12 0-13-12z" fill="#7A4A2B" opacity=".95"/>
+<g fill="#fff" fill-opacity=".55" stroke="#fff" stroke-opacity=".9" stroke-width="2.5"><rect x="158" y="124" width="40" height="40" rx="8" transform="rotate(-10 178 144)"/><rect x="204" y="118" width="42" height="42" rx="8" transform="rotate(10 225 139)"/><rect x="176" y="164" width="38" height="38" rx="8" transform="rotate(-5 195 183)"/><rect x="214" y="168" width="34" height="34" rx="8" transform="rotate(14 231 185)"/></g>
+<path d="M238 78L212 196" stroke="${AC.cherry}" stroke-width="9" stroke-linecap="round"/>
+<ellipse cx="200" cy="228" rx="80" ry="8" fill="#22150E" opacity=".15"/>`;
+        }
+        return `<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${lbl}" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="bg${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F8EEDD"/><stop offset="1" stop-color="#EAD3B4"/></linearGradient></defs><rect width="400" height="240" fill="url(#bg${i})"/><circle cx="200" cy="120" r="108" fill="#fff" opacity=".4"/>${g}${beanP(46, 214, 20, .8)}${beanP(354, 210, -30, .8)}${leafP(330, 40, -50, .7, AC.leaf)}</svg>`;
+      };
+
+      // 4) Latar belakang: pola kontur dataran tinggi + dedaunan, dan latar per bagian
+      const bgMain = () => {
+        let lines = '';
+        for (let k = 0; k < 12; k++) {
+          const y = 40 + k * 86;
+          lines += `<path d="M-100 ${y}C250 ${y - 90} 600 ${y + 110} 950 ${y - 10}S1500 ${y + 70} 1750 ${y - 30}" stroke="${AC.terra}" stroke-opacity="${(0.07 + (k % 3) * 0.025).toFixed(3)}" stroke-width="2" fill="none"/>`;
+        }
+        const leaves = `<g opacity=".09">${leafP(1380, 70, 140, 2.2, AC.forest)}${leafP(1440, 150, 110, 1.8, AC.leaf)}${leafP(1320, 140, 170, 1.8, AC.forest)}${leafP(120, 880, -30, 2.2, AC.forest)}${leafP(60, 800, -60, 1.8, AC.leaf)}${leafP(200, 930, -10, 1.6, AC.forest)}</g>`;
+        const beans = `<g>${beanP(300, 160, 20, 1.2, .07)}${beanP(1180, 520, -30, 1.1, .07)}${beanP(900, 880, 40, 1.4, .06)}${beanP(520, 700, -10, 1, .06)}${beanP(1450, 800, 20, 1.2, .07)}${beanP(140, 420, 50, 1, .06)}</g>`;
+        return toUri(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="m" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBF4E9"/><stop offset=".55" stop-color="#F2E4D0"/><stop offset="1" stop-color="#EAD7BD"/></linearGradient></defs><rect width="1600" height="1000" fill="url(#m)"/>${lines}${leaves}${beans}</svg>`);
+      };
+      const sectionArt = (kind) => {
+        let g = '';
+        if (kind === 'story') {
+          g = `<circle cx="1330" cy="140" r="150" fill="#F2A64E" opacity=".1"/><circle cx="1330" cy="140" r="78" fill="#F2A64E" opacity=".14"/>
+<path d="M0 520L240 330L430 470L700 280L980 470L1240 320L1600 500V700H0Z" fill="${AC.forest}" opacity=".07"/>
+<path d="M0 580Q300 470 600 560T1200 540T1600 560V700H0Z" fill="${AC.leaf}" opacity=".09"/>
+<path d="M0 640Q320 570 640 630T1280 620T1600 636V700H0Z" fill="${AC.forest}" opacity=".1"/>`;
+        } else if (kind === 'gallery') {
+          const ring = (x, y, r) => `<circle cx="${x}" cy="${y}" r="${r}" fill="none" stroke="${AC.terraD}" stroke-opacity=".11" stroke-width="7"/><circle cx="${x + 4}" cy="${y + 3}" r="${r - 12}" fill="none" stroke="${AC.terraD}" stroke-opacity=".07" stroke-width="3"/>`;
+          g = ring(160, 150, 90) + ring(1450, 560, 110) + ring(1280, 90, 55) + ring(260, 600, 60) + beanP(420, 520, 20, 1.6, .08) + beanP(1100, 140, -40, 1.4, .07) + beanP(1500, 300, 30, 1.2, .07) + beanP(80, 380, 60, 1.3, .07);
+        } else if (kind === 'brew') {
+          let ticks = '';
+          for (let k = 0; k < 24; k++) ticks += `<path d="M0 ${60 + k * 26}h${k % 4 === 0 ? 46 : 24}" stroke="${AC.terraD}" stroke-opacity=".12" stroke-width="3"/>`;
+          let dial = '';
+          for (let k = 0; k < 40; k++) { const a = k * Math.PI / 20; dial += `<path d="M${(1360 + Math.cos(a) * 150).toFixed(1)} ${(180 + Math.sin(a) * 150).toFixed(1)}L${(1360 + Math.cos(a) * (k % 5 === 0 ? 124 : 136)).toFixed(1)} ${(180 + Math.sin(a) * (k % 5 === 0 ? 124 : 136)).toFixed(1)}" stroke="${AC.terraD}" stroke-opacity=".13" stroke-width="3"/>`; }
+          g = ticks + `<circle cx="1360" cy="180" r="160" fill="none" stroke="${AC.terraD}" stroke-opacity=".1" stroke-width="3"/>` + dial + `<path d="M1360 180L1424 120" stroke="${AC.terra}" stroke-opacity=".16" stroke-width="5" stroke-linecap="round"/>
+<path d="M200 640q-20-30 0-60t0-60" stroke="${AC.terra}" stroke-opacity=".1" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M250 650q-20-30 0-60t0-60" stroke="${AC.terra}" stroke-opacity=".08" stroke-width="6" fill="none" stroke-linecap="round"/>`;
+        } else if (kind === 'catalog') {
+          g = `<g opacity=".1"><path d="M1600 40Q1350 120 1180 330" stroke="#5A3A22" stroke-width="8" fill="none" stroke-linecap="round"/>${leafP(1500, 70, 150, 2, AC.forest)}${leafP(1400, 140, 130, 2, AC.leaf)}${leafP(1320, 230, 100, 1.8, AC.forest)}${leafP(1240, 320, 70, 1.6, AC.leaf)}${leafP(1450, 120, 200, 1.8, AC.leaf)}${leafP(1350, 190, 190, 1.8, AC.forest)}</g>` + cherryP(1296, 262, 1.6).replace('<g ', '<g opacity=".18" ') + cherryP(1312, 276, 1.6).replace('<g ', '<g opacity=".18" ');
+        } else {
+          g = `<g opacity=".1">${leafP(60, 640, -30, 2.2, AC.forest)}${leafP(30, 560, -60, 1.9, AC.leaf)}${leafP(150, 660, -10, 1.6, AC.forest)}</g>` + beanP(1380, 560, 20, 1.5, .08) + beanP(1450, 620, -30, 1.2, .07);
+        }
+        return toUri(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" preserveAspectRatio="xMidYMax slice">${g}</svg>`);
+      };
+
+      // Fallback untuk gambar eksternal yang gagal dimuat
+      document.addEventListener('error', (e) => {
+        const el = e.target;
+        if (el && el.tagName === 'IMG' && !el.dataset.fb) {
+          el.dataset.fb = '1';
+          el.src = FALLBACK_IMG;
+        }
+      }, true);
+
       // Helpers
       const formatIDR = (num) => 'Rp ' + Math.round(num).toLocaleString('id-ID');
       const formatTime = (sec) => {
@@ -1956,7 +2436,7 @@
             <article class="product-card liquid-glass">
               <div class="product-art">
                 <span class="product-tag">${p.tag}</span>
-                <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMG}';" />
+                <img src="${packshot(p, sel.roast, sel.size)}" alt="Kemasan kopi ${p.name}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMG}';" />
               </div>
               <div class="product-body">
                 <h3 class="product-title">${p.name}</h3>
@@ -2005,8 +2485,9 @@
       // Render Timeline
       const renderTimeline = () => {
         const el = document.getElementById('timeline');
-        el.innerHTML = TIMELINE.map(item => `
+        el.innerHTML = TIMELINE.map((item, idx) => `
           <div class="timeline-item liquid-glass">
+            <div class="story-art">${storyArt(idx)}</div>
             <div class="timeline-year">${item.year}</div>
             <h3>${item.title[currentLang]}</h3>
             <p>${item.desc[currentLang]}</p>
@@ -2039,7 +2520,8 @@
               ${method.steps[currentLang].map(step => `<li>${step}</li>`).join('')}
             </ol>
           </div>
-          <div class="timer-card">
+          <div class="timer-card ${timerInterval ? 'running' : ''}">
+            <div class="brew-art">${brewArt(activeBrewIndex)}</div>
             <span class="eyebrow" style="margin-bottom:0.25rem;">Brew Timer</span>
             <div class="timer-display" id="timerDisplay">${formatTime(timerRemaining)}</div>
             <div style="font-size:0.84rem; color:var(--muted);">Target: ${formatTime(method.seconds)}</div>
@@ -2152,6 +2634,36 @@
         showToast(I18N[currentLang].toastAdded);
       };
 
+      const toggleMenu = (open) => {
+        const m = document.getElementById('mobileMenu');
+        const b = document.getElementById('menuBtn');
+        const next = typeof open === 'boolean' ? open : !m.classList.contains('open');
+        m.classList.toggle('open', next);
+        b.setAttribute('aria-expanded', String(next));
+      };
+
+      const sendEmailOrder = () => {
+        const name = document.getElementById('custName').value.trim();
+        const city = document.getElementById('custCity').value.trim();
+        const note = document.getElementById('custNote').value.trim();
+        const msgEl = document.getElementById('formMsg');
+        const t = I18N[currentLang];
+        if (!name || !city) {
+          msgEl.className = 'form-msg';
+          msgEl.textContent = t.errFill;
+          return;
+        }
+        let body = `Halo BUMARA Coffee,\n\nNama: ${name}\nKota Tujuan: ${city}`;
+        if (note) body += `\nCatatan: ${note}`;
+        if (cart.length) {
+          const total = cart.reduce((s, x) => s + x.price * x.qty, 0);
+          body += '\n\nPesanan Keranjang:\n' + cart.map(c => `- ${c.name} (${c.roast}, ${c.size}, ${c.grind}) x${c.qty}`).join('\n') + `\nTotal: ${formatIDR(total)}`;
+        }
+        msgEl.className = 'form-msg ok';
+        msgEl.textContent = '✓';
+        window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(t.mailSubject)}&body=${encodeURIComponent(body)}`;
+      };
+
       const toggleDrawer = (open) => {
         document.getElementById('cartDrawer').classList.toggle('open', open);
         document.getElementById('cartBackdrop').classList.toggle('open', open);
@@ -2202,6 +2714,11 @@
 
       // Event Listeners
       document.addEventListener('click', (e) => {
+        if (e.target.closest('#menuBtn')) { toggleMenu(); return; }
+        if (e.target.closest('.mobile-menu a')) { toggleMenu(false); }
+        if (e.target.closest('#sendEmailBtn')) { sendEmailOrder(); return; }
+        if (!e.target.closest('#mobileMenu')) { toggleMenu(false); }
+
         const langBtn = e.target.closest('.lang-btn');
         if (langBtn) {
           applyLanguage(langBtn.dataset.lang);
@@ -2378,8 +2895,11 @@
       window.addEventListener('scroll', () => {
         const y = window.scrollY;
         headerEl.classList.toggle('scrolled', y > 45);
+        const prog = document.getElementById('scrollProgress');
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        if (prog && maxScroll > 0) prog.style.width = (y / maxScroll * 100) + '%';
 
-        if (parallaxEl) {
+        if (parallaxEl && window.innerWidth > 900) {
           const speed = parseFloat(parallaxEl.dataset.speed) || 0.03;
           parallaxEl.style.transform = `translateY(${y * speed}px)`;
         }
@@ -2394,6 +2914,14 @@
           a.classList.toggle('active-link', a.getAttribute('href') === `#${currentId}`);
         });
       }, { passive: true });
+
+      // Pasang aset latar & ilustrasi galeri
+      (() => {
+        const root = document.documentElement;
+        document.querySelector('.ambient-bg').style.backgroundImage = 'url("' + bgMain() + '")';
+        ['story', 'gallery', 'brew', 'catalog', 'order'].forEach(k => root.style.setProperty('--art-' + k, 'url("' + sectionArt(k) + '")'));
+        document.querySelectorAll('[data-art]').forEach(el => { el.innerHTML = galleryArt(el.dataset.art); });
+      })();
 
       // Initial Render
       applyLanguage('id');
