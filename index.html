@@ -1,0 +1,2403 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BUMARA Coffee — Kopi Nusantara Specialty & Roastery</title>
+  <meta name="description" content="BUMARA Coffee menghadirkan biji kopi pilihan Nusantara hasil sangrai presisi. Single Origin & House Blend segar langsung dari roastery ke cangkir Anda." />
+  <meta name="theme-color" content="#F7F2EA" />
+  <link rel="canonical" href="https://bumaracoffee.id/" />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="BUMARA Coffee — Kopi Nusantara Specialty & Roastery" />
+  <meta property="og:description" content="Biji kopi pilihan Nusantara disangrai segar setiap minggu. Pesan Single Origin & House Blend favoritmu sekarang." />
+  <meta property="og:url" content="https://bumaracoffee.id/" />
+  <meta property="og:locale" content="id_ID" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Structured Data (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CafeOrCoffeeShop",
+    "name": "BUMARA Coffee",
+    "description": "Specialty Coffee Roastery & Nusantara Single Origin.",
+    "servesCuisine": "Coffee",
+    "priceRange": "$$",
+    "openingHours": "Mo-Su 08:00-22:00"
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg-base: #F6EFE6;
+      --glass-surface: rgba(255, 252, 247, 0.56);
+      --glass-strong: rgba(255, 253, 250, 0.76);
+      --glass-pill: rgba(255, 255, 255, 0.62);
+      --glass-border: rgba(255, 255, 255, 0.78);
+      --glass-edge: rgba(184, 107, 53, 0.16);
+      --accent: #B8632B;
+      --accent-dark: #8F4719;
+      --accent-soft: rgba(184, 99, 43, 0.14);
+      --forest: #2F5238;
+      --ink: #22150E;
+      --muted: #5C4B3E;
+      --radius: 24px;
+      --glass-shadow:
+        0 20px 45px rgba(42, 25, 14, 0.09),
+        inset 0 1.5px 1px rgba(255, 255, 255, 0.92),
+        inset 0 -1px 1px rgba(184, 99, 43, 0.08);
+      --spring: cubic-bezier(0.22, 1, 0.36, 1);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-base);
+      color: var(--ink);
+      line-height: 1.65;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Ambient Fixed Coffee Photo Backdrop + Warm Daylight Veil */
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background-image: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1920&q=85');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      transform: scale(1.04);
+      filter: saturate(1.12) brightness(1.04);
+    }
+
+    .ambient-veil {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 15% 18%, rgba(255, 245, 232, 0.84), rgba(248, 239, 226, 0.72) 48%, rgba(242, 230, 214, 0.82) 100%),
+        linear-gradient(180deg, rgba(255, 251, 246, 0.68) 0%, rgba(247, 238, 225, 0.58) 50%, rgba(250, 243, 234, 0.75) 100%);
+      pointer-events: none;
+    }
+
+    /* Liquid Glass Core Mixin Class */
+    .liquid-glass {
+      position: relative;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.72), rgba(255, 249, 241, 0.44));
+      backdrop-filter: blur(22px) saturate(165%);
+      -webkit-backdrop-filter: blur(22px) saturate(165%);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      overflow: hidden;
+      transition: transform 0.4s var(--spring), box-shadow 0.4s var(--spring), background 0.35s ease;
+    }
+
+    /* Specular Light Reflection Highlight */
+    .liquid-glass::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(
+        420px circle at var(--mx, 25%) var(--my, 15%),
+        rgba(255, 255, 255, 0.65),
+        rgba(255, 255, 255, 0.12) 45%,
+        transparent 75%
+      );
+      pointer-events: none;
+      opacity: 0.85;
+      transition: opacity 0.3s ease;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin-inline: auto;
+    }
+
+    /* Typography */
+    h1, h2, h3, .serif {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--ink);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 6px 16px rgba(34, 21, 14, 0.05), inset 0 1px 0 #fff;
+      padding: 0.38rem 0.95rem;
+      border-radius: 999px;
+      margin-bottom: 0.85rem;
+    }
+
+    .section-title {
+      font-size: clamp(2.15rem, 4vw, 3.25rem);
+      margin-bottom: 0.9rem;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      max-width: 620px;
+      font-size: 1.02rem;
+    }
+
+    /* Liquid Buttons */
+    .btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.85rem 1.7rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: transform 0.35s var(--spring), box-shadow 0.35s var(--spring), background 0.25s ease;
+    }
+
+    .btn:active {
+      transform: scale(0.96);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, rgba(196, 108, 49, 0.92), rgba(153, 76, 26, 0.95));
+      color: #FFFFFF;
+      box-shadow:
+        0 10px 24px rgba(184, 99, 43, 0.28),
+        inset 0 1.5px 1px rgba(255, 255, 255, 0.55);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px) scale(1.015);
+      box-shadow:
+        0 14px 30px rgba(184, 99, 43, 0.36),
+        inset 0 1.5px 1px rgba(255, 255, 255, 0.7);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.62);
+      border-color: rgba(255, 255, 255, 0.85);
+      color: var(--ink);
+      box-shadow:
+        0 8px 20px rgba(34, 21, 14, 0.06),
+        inset 0 1.5px 1px rgba(255, 255, 255, 0.9);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.86);
+      color: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Floating Scroll-Reactive Liquid Navbar / Tab Bar */
+    header {
+      position: sticky;
+      top: 12px;
+      z-index: 60;
+      padding-inline: 1rem;
+      pointer-events: none;
+    }
+
+    .nav-dock {
+      pointer-events: auto;
+      width: min(1180px, 100%);
+      margin-inline: auto;
+      border-radius: 999px;
+      padding: 0 1.4rem;
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.74), rgba(255, 249, 242, 0.52));
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.86);
+      box-shadow:
+        0 14px 34px rgba(34, 21, 14, 0.08),
+        inset 0 1.5px 1px rgba(255, 255, 255, 0.95);
+      transition: all 0.42s var(--spring);
+    }
+
+    /* Dynamic Shrink State on Scroll */
+    header.scrolled .nav-dock {
+      width: min(980px, 96%);
+      height: 60px;
+      padding: 0 1.15rem;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(255, 250, 244, 0.74));
+      box-shadow:
+        0 18px 40px rgba(34, 21, 14, 0.14),
+        inset 0 1.5px 1px rgba(255, 255, 255, 1);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--ink);
+      transition: font-size 0.35s var(--spring);
+    }
+
+    header.scrolled .brand {
+      font-size: 1.45rem;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      list-style: none;
+      background: rgba(255, 255, 255, 0.45);
+      padding: 4px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.65);
+    }
+
+    .nav-links a {
+      display: inline-block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--muted);
+      padding: 0.42rem 0.95rem;
+      border-radius: 999px;
+      transition: all 0.28s var(--spring);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active-link {
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 4px 12px rgba(34, 21, 14, 0.06);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 999px;
+      padding: 3px;
+    }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 0.32rem 0.62rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: 0.25s var(--spring);
+    }
+
+    .lang-btn.active {
+      background: var(--accent);
+      color: #FFFFFF;
+      box-shadow: 0 4px 10px rgba(184, 99, 43, 0.25);
+    }
+
+    .cart-btn {
+      position: relative;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      color: var(--ink);
+      padding: 0.5rem 0.95rem;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-weight: 600;
+      font-size: 0.86rem;
+      box-shadow: 0 6px 16px rgba(34, 21, 14, 0.06), inset 0 1px 0 #fff;
+      transition: transform 0.3s var(--spring), background 0.2s;
+    }
+
+    .cart-btn:hover {
+      background: #FFFFFF;
+      transform: translateY(-1px);
+    }
+
+    .cart-badge {
+      background: var(--accent);
+      color: #FFFFFF;
+      font-size: 0.72rem;
+      font-weight: 700;
+      min-width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding-inline: 5px;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      padding: 4.5rem 0 5.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 5.4vw, 4.5rem);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 em {
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 540px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.9rem;
+      padding: 1.15rem 1.35rem;
+      border-radius: 22px;
+    }
+
+    .stat strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--accent-dark);
+    }
+
+    .stat span {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .hero-visual {
+      position: relative;
+      border-radius: 30px;
+      padding: 0.9rem;
+    }
+
+    .hero-img-wrap {
+      border-radius: 22px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      background: #E8DDD0;
+    }
+
+    .hero-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--spring);
+    }
+
+    .hero-visual:hover .hero-img-wrap img {
+      transform: scale(1.04);
+    }
+
+    /* Floating Glass Widget */
+    .hero-badge-float {
+      position: absolute;
+      bottom: -18px;
+      left: -14px;
+      padding: 0.95rem 1.3rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.92);
+      box-shadow: 0 18px 36px rgba(34, 21, 14, 0.12), inset 0 1.5px 1px #fff;
+    }
+
+    .badge-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--forest);
+      box-shadow: 0 0 0 5px rgba(47, 82, 56, 0.18);
+    }
+
+    .hero-badge-float strong {
+      color: var(--ink);
+      display: block;
+    }
+
+    .hero-badge-float span {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    /* Sections */
+    section {
+      padding: 5.2rem 0;
+    }
+
+    /* Showcase Strip */
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.35rem;
+      margin-top: 2.2rem;
+    }
+
+    .showcase-card {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 18px 36px rgba(34, 21, 14, 0.1);
+    }
+
+    .showcase-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--spring);
+    }
+
+    .showcase-card:hover img {
+      transform: scale(1.07);
+    }
+
+    .showcase-caption {
+      position: absolute;
+      inset: auto 12px 12px 12px;
+      padding: 0.95rem 1.05rem;
+      border-radius: 16px;
+      background: rgba(255, 252, 248, 0.72);
+      backdrop-filter: blur(18px) saturate(170%);
+      -webkit-backdrop-filter: blur(18px) saturate(170%);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      color: var(--ink);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .showcase-caption strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+    }
+
+    .showcase-caption span {
+      font-size: 0.79rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* Catalog & Filters */
+    .catalog-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .filter-bar {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      padding: 5px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.58);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 8px 20px rgba(34, 21, 14, 0.05);
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--muted);
+      padding: 0.52rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s var(--spring);
+    }
+
+    .filter-btn.active {
+      background: var(--accent);
+      color: #FFFFFF;
+      box-shadow: 0 6px 16px rgba(184, 99, 43, 0.28);
+    }
+
+    .filter-btn:not(.active):hover {
+      background: rgba(255, 255, 255, 0.75);
+      color: var(--ink);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(305px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .product-card {
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow:
+        0 26px 50px rgba(34, 21, 14, 0.13),
+        inset 0 1.5px 1px rgba(255, 255, 255, 1);
+    }
+
+    .product-art {
+      position: relative;
+      height: 215px;
+      margin: 10px 10px 0;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #E8DDD0;
+    }
+
+    .product-art img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s var(--spring);
+    }
+
+    .product-card:hover .product-art img {
+      transform: scale(1.06);
+    }
+
+    .product-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      color: var(--ink);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.32rem 0.78rem;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .product-body {
+      padding: 1.35rem 1.45rem 1.45rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .product-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .product-notes {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+      margin-bottom: 0.65rem;
+    }
+
+    .product-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 1.15rem;
+    }
+
+    .opt-group {
+      margin-bottom: 0.85rem;
+    }
+
+    .opt-label {
+      display: block;
+      font-size: 0.73rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .pill-opt {
+      background: rgba(255, 255, 255, 0.58);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 0.34rem 0.74rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.25s var(--spring);
+    }
+
+    .pill-opt:hover {
+      background: rgba(255, 255, 255, 0.88);
+    }
+
+    .pill-opt.selected {
+      background: rgba(184, 99, 43, 0.16);
+      border-color: var(--accent);
+      color: var(--accent-dark);
+      font-weight: 700;
+      box-shadow: 0 4px 10px rgba(184, 99, 43, 0.12);
+    }
+
+    .grind-select {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.88);
+      color: var(--ink);
+      padding: 0.52rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.85rem;
+    }
+
+    .product-footer {
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(34, 21, 14, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .product-price {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    /* Timeline */
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .timeline-item {
+      border-radius: var(--radius);
+      padding: 1.75rem;
+    }
+
+    .timeline-item:hover {
+      transform: translateY(-4px);
+    }
+
+    .timeline-year {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.45rem;
+    }
+
+    .timeline-item h3 {
+      font-size: 1.32rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-item p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* Brew Guide + Timer */
+    .brew-tabs {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      padding: 6px;
+      border-radius: 999px;
+      margin: 2rem 0 1.5rem;
+      background: rgba(255, 255, 255, 0.58);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+    }
+
+    .brew-tab {
+      background: transparent;
+      border: none;
+      color: var(--ink);
+      padding: 0.6rem 1.25rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s var(--spring);
+    }
+
+    .brew-tab.active {
+      background: var(--accent);
+      color: #FFFFFF;
+      box-shadow: 0 6px 16px rgba(184, 99, 43, 0.25);
+    }
+
+    .brew-panel {
+      border-radius: 28px;
+      padding: 2.2rem;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .brew-specs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.85rem;
+      margin: 1.25rem 0;
+    }
+
+    .spec-box {
+      background: rgba(255, 255, 255, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.88);
+      padding: 0.85rem;
+      border-radius: 14px;
+    }
+
+    .spec-box span {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .spec-box strong {
+      color: var(--accent-dark);
+      font-size: 0.98rem;
+    }
+
+    .brew-steps {
+      padding-left: 1.2rem;
+      color: var(--muted);
+      font-size: 0.94rem;
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .timer-card {
+      background: linear-gradient(155deg, rgba(255, 255, 255, 0.82), rgba(255, 245, 234, 0.62));
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1.5px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 16px 35px rgba(184, 99, 43, 0.12), inset 0 1.5px 1px #fff;
+      border-radius: 24px;
+      padding: 1.85rem;
+      text-align: center;
+    }
+
+    .timer-display {
+      font-family: var(--font-serif);
+      font-size: 3.6rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+      margin: 0.35rem 0;
+      letter-spacing: 0.04em;
+    }
+
+    .timer-controls {
+      display: flex;
+      justify-content: center;
+      gap: 0.65rem;
+      margin-top: 1rem;
+    }
+
+    /* Testimonials */
+    .testi-wrap {
+      margin-top: 2.2rem;
+      border-radius: 28px;
+      padding: 2.4rem;
+    }
+
+    .testi-quote {
+      font-family: var(--font-serif);
+      font-size: clamp(1.38rem, 2.5vw, 1.9rem);
+      font-style: italic;
+      margin-bottom: 1.25rem;
+      color: var(--ink);
+    }
+
+    .testi-author {
+      font-weight: 700;
+      color: var(--accent-dark);
+    }
+
+    .testi-role {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .testi-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(34, 21, 14, 0.08);
+    }
+
+    .dots {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(34, 21, 14, 0.18);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s var(--spring);
+    }
+
+    .dot.active {
+      width: 28px;
+      background: var(--accent);
+    }
+
+    /* Order / Contact Form */
+    .order-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .form-card {
+      border-radius: 28px;
+      padding: 2.2rem;
+    }
+
+    .field {
+      margin-bottom: 1.1rem;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .field input, .field textarea, .field select {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      color: var(--ink);
+      padding: 0.8rem 1rem;
+      border-radius: 14px;
+      font-size: 0.93rem;
+      box-shadow: inset 0 1px 2px rgba(34, 21, 14, 0.04);
+      transition: all 0.25s ease;
+    }
+
+    .field input:focus, .field textarea:focus, .field select:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 0 0 4px rgba(184, 99, 43, 0.12);
+    }
+
+    .form-msg {
+      margin-top: 0.85rem;
+      font-size: 0.88rem;
+      color: #C62828;
+      min-height: 1.2em;
+    }
+
+    .form-msg.ok {
+      color: var(--forest);
+      font-weight: 600;
+    }
+
+    /* Liquid Glass Cart Drawer */
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(34, 21, 14, 0.28);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 90;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .drawer-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      bottom: 12px;
+      width: min(420px, calc(100% - 24px));
+      border-radius: 28px;
+      background: linear-gradient(155deg, rgba(255, 255, 255, 0.84), rgba(255, 249, 242, 0.72));
+      backdrop-filter: blur(28px) saturate(185%);
+      -webkit-backdrop-filter: blur(28px) saturate(185%);
+      border: 1px solid rgba(255, 255, 255, 0.92);
+      box-shadow: 0 24px 60px rgba(34, 21, 14, 0.2), inset 0 1.5px 1px #fff;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transform: translateX(calc(100% + 24px));
+      transition: transform 0.42s var(--spring);
+    }
+
+    .cart-drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-head {
+      padding: 1.35rem 1.5rem;
+      border-bottom: 1px solid rgba(34, 21, 14, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .cart-item {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 18px;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      box-shadow: 0 6px 16px rgba(34, 21, 14, 0.04);
+    }
+
+    .cart-item-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    .qty-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.6rem;
+    }
+
+    .qty-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      border: 1px solid rgba(34, 21, 14, 0.12);
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--ink);
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .drawer-foot {
+      padding: 1.35rem 1.5rem;
+      border-top: 1px solid rgba(34, 21, 14, 0.08);
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-glass {
+      border-radius: 30px;
+      padding: 2.6rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Reveal Animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s var(--spring), transform 0.65s var(--spring);
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Liquid Notification Pill */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(24px) scale(0.95);
+      background: rgba(34, 21, 14, 0.84);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 0.82rem 1.5rem;
+      border-radius: 999px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.35s var(--spring);
+      z-index: 120;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .brew-panel, .order-grid, .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .showcase-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .nav-links {
+        display: none;
+      }
+      .ambient-bg {
+        background-attachment: scroll;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Coffee Photo Backdrop -->
+  <div class="ambient-bg" aria-hidden="true"></div>
+  <div class="ambient-veil" aria-hidden="true"></div>
+
+  <!-- Floating Scroll-Reactive Liquid Navbar -->
+  <header id="topHeader">
+    <div class="nav-dock">
+      <a href="#" class="brand" aria-label="BUMARA Coffee Home">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="14" stroke="#B8632B" stroke-width="2.2"/>
+          <path d="M16 7C11.5 11 11.5 21 16 25C20.5 21 20.5 11 16 7Z" stroke="#2F5238" stroke-width="2"/>
+          <path d="M16 8C14.5 13 17.5 19 16 24" stroke="#B8632B" stroke-width="1.6"/>
+        </svg>
+        BUMARA<span>.</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#catalog" data-i="navCatalog">Katalog Kopi</a></li>
+        <li><a href="#gallery" data-i="navGallery">Sajian</a></li>
+        <li><a href="#story" data-i="navStory">Perjalanan</a></li>
+        <li><a href="#brew" data-i="navBrew">Panduan Seduh</a></li>
+        <li><a href="#order" data-i="navOrder">Pesan</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <div class="lang-switch" role="group" aria-label="Language switcher">
+          <button type="button" class="lang-btn active" data-lang="id">ID</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <button type="button" class="cart-btn" id="openCartBtn" aria-label="Buka keranjang belanja">
+          <span data-i="cartLabel">Keranjang</span>
+          <span class="cart-badge" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="reveal in">
+        <span class="eyebrow" data-i="heroEyebrow">Specialty Nusantara Roastery</span>
+        <h1 data-ih="heroTitle">Setiap Biji Menyimpan <em>Cerita Tanah</em> Nusantara</h1>
+        <p data-i="heroDesc">Dipetik dari dataran tinggi pilihan Indonesia dan disangrai dalam batch kecil setiap minggu untuk menjaga karakter rasa yang jujur dan aromatik.</p>
+        <div class="hero-cta">
+          <a href="#catalog" class="btn btn-primary" data-i="heroCtaPrimary">Jelajahi Biji Kopi</a>
+          <a href="#brew" class="btn btn-outline" data-i="heroCtaSecondary">Panduan & Timer Seduh</a>
+        </div>
+        <div class="hero-stats liquid-glass">
+          <div class="stat">
+            <strong>100%</strong>
+            <span data-i="stat1">Arabika & Fine Robusta</span>
+          </div>
+          <div class="stat">
+            <strong>&lt; 7 Hari</strong>
+            <span data-i="stat2">Segar Pasca Sangrai</span>
+          </div>
+          <div class="stat">
+            <strong>12+</strong>
+            <span data-i="stat3">Asal Kebun Nusantara</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual liquid-glass reveal in" data-speed="0.03">
+        <div class="hero-img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=85"
+            alt="Seduhan kopi specialty hangat dan biji kopi sangrai BUMARA"
+          />
+        </div>
+        <div class="hero-badge-float">
+          <span class="badge-dot" aria-hidden="true"></span>
+          <div>
+            <strong data-i="floatTitle">Roast-to-Order</strong>
+            <span data-i="floatSub">Dikirim segar langsung dari roastery</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catalog -->
+  <section id="catalog">
+    <div class="container">
+      <div class="catalog-head reveal">
+        <div>
+          <span class="eyebrow" data-i="catEyebrow">Koleksi Biji Sangrai</span>
+          <h2 class="section-title" data-i="catTitle">Pilih Karakter Kopimu</h2>
+          <p class="section-sub" data-i="catSub">Sesuaikan tingkat sangrai (Roast Level), ukuran kemasan, dan gilingan sesuai alat seduh di rumah.</p>
+        </div>
+        <div class="filter-bar" role="tablist" aria-label="Filter kategori kopi">
+          <button type="button" class="filter-btn active" data-filter="all" data-i="filterAll">Semua</button>
+          <button type="button" class="filter-btn" data-filter="single" data-i="filterSingle">Single Origin</button>
+          <button type="button" class="filter-btn" data-filter="blend" data-i="filterBlend">House Blend</button>
+        </div>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+    </div>
+  </section>
+
+  <!-- Visual Gallery / Ragam Sajian -->
+  <section id="gallery">
+    <div class="container">
+      <div class="reveal">
+        <span class="eyebrow" data-i="galEyebrow">Inspirasi Seduhan</span>
+        <h2 class="section-title" data-i="galTitle">Ragam Sajian dari Satu Biji Pilihan</h2>
+        <p class="section-sub" data-i="galSub">Eksplorasi berbagai metode ekstraksi mulai dari filter manual yang jernih hingga espresso berbasis susu yang lembut.</p>
+      </div>
+
+      <div class="showcase-grid reveal">
+        <div class="showcase-card">
+          <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=700&q=80" alt="V60 Pour Over manual brew" loading="lazy" />
+          <div class="showcase-caption">
+            <strong>V60 Manual Brew</strong>
+            <span data-i="galCap1">Clean & Floral Clarity</span>
+          </div>
+        </div>
+        <div class="showcase-card">
+          <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=700&q=80" alt="Golden Crema Espresso shot" loading="lazy" />
+          <div class="showcase-caption">
+            <strong>Golden Crema</strong>
+            <span data-i="galCap2">Rich & Velvety Espresso</span>
+          </div>
+        </div>
+        <div class="showcase-card">
+          <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=700&q=80" alt="Artisan Cappuccino Latte Art" loading="lazy" />
+          <div class="showcase-caption">
+            <strong>Silky Latte</strong>
+            <span data-i="galCap3">Sweet Caramel & Milk</span>
+          </div>
+        </div>
+        <div class="showcase-card">
+          <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80" alt="Japanese Iced Coffee dingin segar" loading="lazy" />
+          <div class="showcase-caption">
+            <strong>Japanese Iced</strong>
+            <span data-i="galCap4">Crisp & Refreshing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story / Timeline -->
+  <section id="story">
+    <div class="container">
+      <div class="reveal">
+        <span class="eyebrow" data-i="storyEyebrow">Jejak Langkah</span>
+        <h2 class="section-title" data-i="storyTitle">Dari Kebun Tinggi ke Meja Seduh</h2>
+        <p class="section-sub" data-i="storySub">Kemitraan langsung bersama petani lokal memastikan panen petik merah dan proses pascapanen yang terukur.</p>
+      </div>
+      <div class="timeline-grid" id="timeline"></div>
+    </div>
+  </section>
+
+  <!-- Brew Guide + Timer -->
+  <section id="brew">
+    <div class="container">
+      <div class="reveal">
+        <span class="eyebrow" data-i="brewEyebrow">Laboratorium Seduh</span>
+        <h2 class="section-title" data-i="brewTitle">Panduan Seduh & Timer Presisi</h2>
+        <p class="section-sub" data-i="brewSub">Pilih metode seduh favoritmu, ikuti parameter rasio air, dan gunakan timer bawaan untuk ekstraksi konsisten.</p>
+      </div>
+
+      <div class="brew-tabs" id="btabs" role="tablist"></div>
+      <div class="brew-panel liquid-glass reveal" id="bpanel"></div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="reviews">
+    <div class="container">
+      <div class="reveal">
+        <span class="eyebrow" data-i="revEyebrow">Kata Penikmat Kopi</span>
+        <h2 class="section-title" data-i="revTitle">Dipercaya Home Brewer & Kedai</h2>
+      </div>
+
+      <div class="testi-wrap liquid-glass reveal">
+        <div id="slides"></div>
+        <div class="testi-nav">
+          <div class="dots" id="dots"></div>
+          <div style="display:flex; gap:0.5rem;">
+            <button type="button" class="btn btn-outline" id="prev" style="padding:0.5rem 1rem;" aria-label="Testimoni sebelumnya">←</button>
+            <button type="button" class="btn btn-outline" id="next" style="padding:0.5rem 1rem;" aria-label="Testimoni berikutnya">→</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Order / Contact -->
+  <section id="order">
+    <div class="container order-grid">
+      <div class="reveal">
+        <span class="eyebrow" data-i="ordEyebrow">Pemesanan & Kemitraan</span>
+        <h2 class="section-title" data-i="ordTitle">Pesan Langsung atau Konsultasi Biji</h2>
+        <p class="section-sub" style="margin-bottom:1.5rem;" data-i="ordSub">Butuh rekomendasi biji untuk mesin espresso kafe atau stok seduh harian di rumah? Kirim pesan langsung ke tim roaster kami via WhatsApp.</p>
+
+        <div class="liquid-glass" style="padding:1.35rem 1.5rem; border-radius:20px; display:grid; gap:0.85rem; color:var(--muted); font-size:0.94rem;">
+          <div><strong style="color:var(--ink);" data-i="infoHoursLabel">Jam Roastery & Pengiriman:</strong> <span data-i="infoHoursVal">Senin – Minggu, 08.00 – 21.00 WIB</span></div>
+          <div><strong style="color:var(--ink);" data-i="infoShipLabel">Pengiriman:</strong> <span data-i="infoShipVal">Sameday / Reguler seluruh Indonesia (Kemasan One-Way Valve)</span></div>
+          <div><strong style="color:var(--ink);">WhatsApp Roastery:</strong> +62 857-0128-7242</div>
+        </div>
+      </div>
+
+      <form class="form-card liquid-glass reveal" id="orderForm" novalidate>
+        <div class="field">
+          <label for="custName" data-i="lblName">Nama Lengkap</label>
+          <input type="text" id="custName" required data-ph="phName" placeholder="Contoh: Raka Pratama" />
+        </div>
+        <div class="field">
+          <label for="custCity" data-i="lblCity">Kota Tujuan Pengiriman</label>
+          <input type="text" id="custCity" required data-ph="phCity" placeholder="Contoh: Temanggung / Yogyakarta" />
+        </div>
+        <div class="field">
+          <label for="custNote" data-i="lblNote">Catatan Pesanan / Pertanyaan</label>
+          <textarea id="custNote" rows="3" data-ph="phNote" placeholder="Tulis detail biji pilihan atau permintaan khusus..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;" data-i="btnSendWa">Kirim Pesanan via WhatsApp</button>
+        <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-glass liquid-glass">
+        <div class="footer-grid">
+          <div>
+            <a href="#" class="brand" style="margin-bottom:0.75rem;">BUMARA<span>.</span></a>
+            <p data-i="footerDesc">Specialty Coffee Roastery yang merayakan kekayaan karakter kopi Nusantara dengan sangraian presisi dan jujur.</p>
+          </div>
+          <div>
+            <strong style="color:var(--ink);" data-i="footerNav">Navigasi</strong>
+            <ul class="footer-links">
+              <li><a href="#catalog" data-i="navCatalog">Katalog Kopi</a></li>
+              <li><a href="#gallery" data-i="navGallery">Sajian</a></li>
+              <li><a href="#story" data-i="navStory">Perjalanan</a></li>
+              <li><a href="#brew" data-i="navBrew">Panduan Seduh</a></li>
+            </ul>
+          </div>
+          <div>
+            <strong style="color:var(--ink);" data-i="footerSocial">Terhubung</strong>
+            <ul class="footer-links">
+              <li><a href="https://wa.me/6285701287242" target="_blank" rel="noopener">WhatsApp Official</a></li>
+              <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram @bumaracoffee</a></li>
+              <li><a href="#catalog" data-i="footerWholesale">Program B2B & Kedai Kopi</a></li>
+            </ul>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(34,21,14,0.08); padding-top:1.35rem; display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem; font-size:0.84rem;">
+          <span>© 2026 BUMARA Coffee Roastery. All rights reserved.</span>
+          <span data-i="footerTag">Freshly Roasted in Indonesia</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Liquid Glass Shopping Cart Drawer -->
+  <div class="drawer-backdrop" id="cartBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Keranjang Belanja">
+    <div class="drawer-head">
+      <h3 style="font-size:1.5rem;" data-i="cartTitle">Keranjang Belanja</h3>
+      <button type="button" class="btn btn-outline" id="closeCartBtn" style="padding:0.4rem 0.85rem;">✕</button>
+    </div>
+    <div class="drawer-body" id="cartItems"></div>
+    <div class="drawer-foot">
+      <div class="total-row">
+        <span data-i="cartTotal">Total Estimasi</span>
+        <span id="cartTotalVal" style="color:var(--accent-dark);">Rp 0</span>
+      </div>
+      <button type="button" class="btn btn-primary" id="checkoutWaBtn" style="width:100%;" data-i="cartCheckout">Checkout via WhatsApp</button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (() => {
+      const WA_NUMBER = '6285701287242';
+      let currentLang = 'id';
+      let activeFilter = 'all';
+      let activeBrewIndex = 0;
+      let activeTestiIndex = 0;
+
+      // Timer state
+      let timerSeconds = 150;
+      let timerRemaining = 150;
+      let timerInterval = null;
+
+      // Cart state
+      let cart = JSON.parse(localStorage.getItem('bumara_cart') || '[]');
+
+      // Fallback SVG data URI
+      const FALLBACK_IMG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23EFE6D8'/%3E%3Ccircle cx='300' cy='200' r='70' fill='%23B8632B' opacity='0.2'/%3E%3Ctext x='300' y='206' text-anchor='middle' font-family='Georgia, serif' font-size='22' fill='%2322150E'%3EBUMARA Coffee%3C/text%3E%3C/svg%3E";
+
+      // i18n Dictionary
+      const I18N = {
+        id: {
+          navCatalog: 'Katalog Kopi',
+          navGallery: 'Sajian',
+          navStory: 'Perjalanan',
+          navBrew: 'Panduan Seduh',
+          navOrder: 'Pesan',
+          cartLabel: 'Keranjang',
+          heroEyebrow: 'Specialty Nusantara Roastery',
+          heroTitle: 'Setiap Biji Menyimpan <em>Cerita Tanah</em> Nusantara',
+          heroDesc: 'Dipetik dari dataran tinggi pilihan Indonesia dan disangrai dalam batch kecil setiap minggu untuk menjaga karakter rasa yang jujur dan aromatik.',
+          heroCtaPrimary: 'Jelajahi Biji Kopi',
+          heroCtaSecondary: 'Panduan & Timer Seduh',
+          stat1: 'Arabika & Fine Robusta',
+          stat2: 'Segar Pasca Sangrai',
+          stat3: 'Asal Kebun Nusantara',
+          floatTitle: 'Roast-to-Order',
+          floatSub: 'Dikirim segar langsung dari roastery',
+          catEyebrow: 'Koleksi Biji Sangrai',
+          catTitle: 'Pilih Karakter Kopimu',
+          catSub: 'Sesuaikan tingkat sangrai (Roast Level), ukuran kemasan, dan gilingan sesuai alat seduh di rumah.',
+          filterAll: 'Semua',
+          filterSingle: 'Single Origin',
+          filterBlend: 'House Blend',
+          galEyebrow: 'Inspirasi Seduhan',
+          galTitle: 'Ragam Sajian dari Satu Biji Pilihan',
+          galSub: 'Eksplorasi berbagai metode ekstraksi mulai dari filter manual yang jernih hingga espresso berbasis susu yang lembut.',
+          galCap1: 'Clean & Floral Clarity',
+          galCap2: 'Rich & Velvety Espresso',
+          galCap3: 'Sweet Caramel & Milk',
+          galCap4: 'Crisp & Refreshing',
+          roastLbl: 'Roast Level',
+          sizeLbl: 'Ukuran Kemasan',
+          grindLbl: 'Tingkat Gilingan',
+          addCart: '+ Keranjang',
+          storyEyebrow: 'Jejak Langkah',
+          storyTitle: 'Dari Kebun Tinggi ke Meja Seduh',
+          storySub: 'Kemitraan langsung bersama petani lokal memastikan panen petik merah dan proses pascapanen yang terukur.',
+          brewEyebrow: 'Laboratorium Seduh',
+          brewTitle: 'Panduan Seduh & Timer Presisi',
+          brewSub: 'Pilih metode seduh favoritmu, ikuti parameter rasio air, dan gunakan timer bawaan untuk ekstraksi konsisten.',
+          revEyebrow: 'Kata Penikmat Kopi',
+          revTitle: 'Dipercaya Home Brewer & Kedai',
+          ordEyebrow: 'Pemesanan & Kemitraan',
+          ordTitle: 'Pesan Langsung atau Konsultasi Biji',
+          ordSub: 'Butuh rekomendasi biji untuk mesin espresso kafe atau stok seduh harian di rumah? Kirim pesan langsung ke tim roaster kami via WhatsApp.',
+          infoHoursLabel: 'Jam Roastery & Pengiriman:',
+          infoHoursVal: 'Senin – Minggu, 08.00 – 21.00 WIB',
+          infoShipLabel: 'Pengiriman:',
+          infoShipVal: 'Sameday / Reguler seluruh Indonesia (Kemasan One-Way Valve)',
+          lblName: 'Nama Lengkap',
+          phName: 'Contoh: Raka Pratama',
+          lblCity: 'Kota Tujuan Pengiriman',
+          phCity: 'Contoh: Temanggung / Yogyakarta',
+          lblNote: 'Catatan Pesanan / Pertanyaan',
+          phNote: 'Tulis detail biji pilihan atau permintaan khusus...',
+          btnSendWa: 'Kirim Pesanan via WhatsApp',
+          footerDesc: 'Specialty Coffee Roastery yang merayakan kekayaan karakter kopi Nusantara dengan sangraian presisi dan jujur.',
+          footerNav: 'Navigasi',
+          footerSocial: 'Terhubung',
+          footerWholesale: 'Program B2B & Kedai Kopi',
+          footerTag: 'Freshly Roasted in Indonesia',
+          cartTitle: 'Keranjang Belanja',
+          cartTotal: 'Total Estimasi',
+          cartCheckout: 'Checkout via WhatsApp',
+          cartEmpty: 'Keranjang masih kosong. Pilih biji kopi favoritmu di katalog.',
+          toastAdded: 'Ditambahkan ke keranjang!',
+          errFill: 'Mohon isi nama dan kota tujuan terlebih dahulu.',
+          okRedirect: 'Membuka WhatsApp dengan rincian pesanan...',
+          timerStart: 'Mulai',
+          timerPause: 'Jeda',
+          timerReset: 'Reset',
+          timerDone: 'Seduhan selesai! Selamat menikmati.'
+        },
+        en: {
+          navCatalog: 'Coffee Catalog',
+          navGallery: 'Serve Styles',
+          navStory: 'Journey',
+          navBrew: 'Brew Guide',
+          navOrder: 'Order',
+          cartLabel: 'Cart',
+          heroEyebrow: 'Specialty Nusantara Roastery',
+          heroTitle: 'Every Bean Holds a <em>Story of Indonesian</em> Soil',
+          heroDesc: 'Harvested from select Indonesian highlands and roasted in small weekly batches to preserve honest, aromatic flavor profiles.',
+          heroCtaPrimary: 'Explore Coffee Beans',
+          heroCtaSecondary: 'Brew Guide & Timer',
+          stat1: 'Arabica & Fine Robusta',
+          stat2: 'Fresh Post-Roast',
+          stat3: 'Archipelago Origins',
+          floatTitle: 'Roast-to-Order',
+          floatSub: 'Shipped fresh straight from our roastery',
+          catEyebrow: 'Roasted Bean Collection',
+          catTitle: 'Choose Your Flavor Profile',
+          catSub: 'Customize roast level, bag size, and grind size to match your home brewing equipment.',
+          filterAll: 'All',
+          filterSingle: 'Single Origin',
+          filterBlend: 'House Blend',
+          galEyebrow: 'Brew Inspiration',
+          galTitle: 'Diverse Serves from Single-Origin Craft',
+          galSub: 'Explore extraction styles from crystal-clear manual pour-over to velvety milk-based espresso.',
+          galCap1: 'Clean & Floral Clarity',
+          galCap2: 'Rich & Velvety Espresso',
+          galCap3: 'Sweet Caramel & Milk',
+          galCap4: 'Crisp & Refreshing',
+          roastLbl: 'Roast Level',
+          sizeLbl: 'Package Size',
+          grindLbl: 'Grind Size',
+          addCart: '+ Add to Cart',
+          storyEyebrow: 'Milestones',
+          storyTitle: 'From Highland Farms to Your Brew Bar',
+          storySub: 'Direct partnerships with local farmers ensure red-cherry selective harvesting and calibrated post-harvest processing.',
+          brewEyebrow: 'Brew Lab',
+          brewTitle: 'Brew Guide & Precision Timer',
+          brewSub: 'Pick your favorite brewing method, follow the water-to-coffee ratio, and use the built-in timer for repeatable extraction.',
+          revEyebrow: 'Coffee Lovers Say',
+          revTitle: 'Trusted by Home Brewers & Cafes',
+          ordEyebrow: 'Orders & Wholesale',
+          ordTitle: 'Order Direct or Consult Our Roasters',
+          ordSub: 'Need bean recommendations for your cafe espresso bar or daily home filter? Message our roasting team directly on WhatsApp.',
+          infoHoursLabel: 'Roastery & Dispatch Hours:',
+          infoHoursVal: 'Monday – Sunday, 08:00 – 21:00 WIB',
+          infoShipLabel: 'Shipping:',
+          infoShipVal: 'Same-day / Nationwide Indonesia (One-Way Valve Bags)',
+          lblName: 'Full Name',
+          phName: 'e.g. Raka Pratama',
+          lblCity: 'Destination City',
+          phCity: 'e.g. Temanggung / Yogyakarta',
+          lblNote: 'Order Notes / Inquiry',
+          phNote: 'Write preferred beans or special requests...',
+          btnSendWa: 'Send Order via WhatsApp',
+          footerDesc: 'Specialty Coffee Roastery celebrating Indonesian coffee terroir through precise, honest small-batch roasting.',
+          footerNav: 'Navigation',
+          footerSocial: 'Connect',
+          footerWholesale: 'B2B & Coffee Shop Supply',
+          footerTag: 'Freshly Roasted in Indonesia',
+          cartTitle: 'Shopping Cart',
+          cartTotal: 'Estimated Total',
+          cartCheckout: 'Checkout via WhatsApp',
+          cartEmpty: 'Your cart is empty. Pick your favorite beans from the catalog.',
+          toastAdded: 'Added to cart!',
+          errFill: 'Please enter your name and destination city first.',
+          okRedirect: 'Opening WhatsApp with your order details...',
+          timerStart: 'Start',
+          timerPause: 'Pause',
+          timerReset: 'Reset',
+          timerDone: 'Brew complete! Enjoy your cup.'
+        }
+      };
+
+      // Products Data
+      const PRODUCTS = [
+        {
+          id: 'temanggung-natural',
+          category: 'single',
+          tag: 'Single Origin • 1.450 mdpl',
+          name: 'Sindoro Temanggung Natural',
+          notes: 'Jackfruit • Dark Chocolate • Palm Sugar',
+          image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=800&q=80',
+          desc: {
+            id: 'Karakter manis buah tropis yang tebal dengan aftertaste gula aren khas lereng Gunung Sindoro.',
+            en: 'Lush tropical fruit sweetness with a lingering palm sugar finish from Mount Sindoro slopes.'
+          },
+          basePrice200: 85000,
+          defaultRoast: 'Medium'
+        },
+        {
+          id: 'gayo-honey',
+          category: 'single',
+          tag: 'Single Origin • 1.600 mdpl',
+          name: 'Aceh Gayo Black Honey',
+          notes: 'Red Plum • Caramel • Warm Spice',
+          image: 'https://images.unsplash.com/photo-1587734195503-904fca47e0e9?auto=format&fit=crop&w=800&q=80',
+          desc: {
+            id: 'Keasaman buah yang halus berpadu dengan body sirup karamel dan aroma rempah hangat.',
+            en: 'Balanced stone-fruit acidity paired with syrupy caramel body and warm spice aromatics.'
+          },
+          basePrice200: 92000,
+          defaultRoast: 'Light'
+        },
+        {
+          id: 'toraja-washed',
+          category: 'single',
+          tag: 'Single Origin • 1.550 mdpl',
+          name: 'Toraja Sapan Washed',
+          notes: 'Jasmine • Mandarin Orange • Cacao Nib',
+          image: 'https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?auto=format&fit=crop&w=800&q=80',
+          desc: {
+            id: 'Profil bersih dan floral dengan sentuhan jeruk mandarin segar yang cerah untuk seduh manual.',
+            en: 'Clean, floral cup with bright mandarin orange notes tailored for manual pour-over.'
+          },
+          basePrice200: 90000,
+          defaultRoast: 'Light'
+        },
+        {
+          id: 'bumara-crema',
+          category: 'blend',
+          tag: 'House Blend • 70/30',
+          name: 'BUMARA Golden Crema Blend',
+          notes: 'Roasted Hazelnut • Toffee • Velvety Body',
+          image: 'https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=800&q=80',
+          desc: {
+            id: 'Paduan Arabika Jawa & Fine Robusta Temanggung dengan krema tebal, cocok untuk espresso & es kopi susu.',
+            en: 'A 70/30 blend of Java Arabica & Temanggung Fine Robusta yielding rich crema for espresso and milk drinks.'
+          },
+          basePrice200: 78000,
+          defaultRoast: 'Dark'
+        },
+        {
+          id: 'bumara-dusk',
+          category: 'blend',
+          tag: 'House Blend • 100% Arabica',
+          name: 'Nusantara Dusk Blend',
+          notes: 'Milk Chocolate • Dried Berry • Nutty',
+          image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80',
+          desc: {
+            id: 'Blend seimbang sepanjang hari untuk filter maupun espresso modern dengan rasa manis cokelat susu.',
+            en: 'All-day balanced 100% Arabica blend suited for both filter and modern espresso with milk chocolate sweetness.'
+          },
+          basePrice200: 84000,
+          defaultRoast: 'Medium'
+        },
+        {
+          id: 'flores-bajawa',
+          category: 'single',
+          tag: 'Single Origin • 1.500 mdpl',
+          name: 'Flores Bajawa Semi-Washed',
+          notes: 'Vanilla • Nougat • Sweet Tobacco',
+          image: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800&q=80',
+          desc: {
+            id: 'Aroma vanila dan kacang panggang yang lembut dengan tingkat keasaman rendah dan nyaman di lambung.',
+            en: 'Soft vanilla and toasted nougat aroma with gentle low acidity for an easy daily cup.'
+          },
+          basePrice200: 88000,
+          defaultRoast: 'Medium'
+        }
+      ];
+
+      const SIZE_MULTIPLIER = {
+        '200g': 1,
+        '500g': 2.25,
+        '1kg': 4.1
+      };
+
+      const GRIND_OPTIONS = [
+        { val: 'Whole Bean (Biji Utuh)', label: { id: 'Whole Bean (Biji Utuh)', en: 'Whole Bean' } },
+        { val: 'Filter / V60 (Medium-Coarse)', label: { id: 'Filter / V60 (Sedang-Kasar)', en: 'Filter / V60 (Medium-Coarse)' } },
+        { val: 'Espresso (Halus)', label: { id: 'Espresso (Halus)', en: 'Espresso (Fine)' } },
+        { val: 'Tubruk / French Press', label: { id: 'Tubruk / French Press', en: 'Tubruk / French Press' } }
+      ];
+
+      const productSelections = {};
+      PRODUCTS.forEach(p => {
+        productSelections[p.id] = {
+          roast: p.defaultRoast,
+          size: '200g',
+          grind: GRIND_OPTIONS[0].val
+        };
+      });
+
+      const TIMELINE = [
+        {
+          year: '01 • Panen',
+          title: { id: 'Seleksi Petik Merah', en: 'Red-Cherry Harvest' },
+          desc: {
+            id: 'Hanya buah kopi matang sempurna (>95% merah) yang dipetik dari kebun mitra di ketinggian 1.300–1.700 mdpl.',
+            en: 'Only ripe cherries (>95% red) are handpicked from partner farms at 1,300–1,700 MASL.'
+          }
+        },
+        {
+          year: '02 • Proses',
+          title: { id: 'Fermentasi & Pengeringan Terukur', en: 'Calibrated Processing' },
+          desc: {
+            id: 'Kadar air dijaga stabil pada 11–11.5% di atas para-para pengering untuk mengunci kemanisan alami biji.',
+            en: 'Moisture levels are stabilized at 11–11.5% on raised beds to lock in natural bean sweetness.'
+          }
+        },
+        {
+          year: '03 • Sangrai',
+          title: { id: 'Small-Batch Profiling', en: 'Small-Batch Profiling' },
+          desc: {
+            id: 'Disangrai menggunakan mesin drum presisi dengan kurva suhu terpantau agar karakter origin tetap menonjol.',
+            en: 'Roasted on precision drum roasters with logged temperature curves to highlight origin character.'
+          }
+        },
+        {
+          year: '04 • Cangkir',
+          title: { id: 'Quality Cupping & Pengemasan', en: 'Cupping & Valve Sealing' },
+          desc: {
+            id: 'Setiap batch lolos uji cupping sebelum dikemas dalam kantong katup satu arah agar kesegaran terjaga.',
+            en: 'Every batch passes sensory cupping before sealing in one-way degassing valve bags.'
+          }
+        }
+      ];
+
+      const BREW_METHODS = [
+        {
+          name: 'V60 Pour Over',
+          ratio: '1 : 15 (15g : 225ml)',
+          temp: '92°C – 94°C',
+          grind: 'Medium-Coarse',
+          seconds: 150,
+          steps: {
+            id: [
+              'Bilas kertas filter dengan air panas dan buang air bilasan.',
+              'Tuang 45ml air untuk blooming selama 35 detik sambil diputar perlahan.',
+              'Lanjutkan tuangan melingkar hingga 140ml pada menit 01:15.',
+              'Selesaikan tuangan akhir hingga 225ml, target selesai ekstraksi di 02:30.'
+            ],
+            en: [
+              'Rinse the paper filter with hot water and discard the rinse water.',
+              'Pour 45ml of water for a 35-second bloom with a gentle swirl.',
+              'Continue concentric pouring up to 140ml by 01:15.',
+              'Finish pouring to 225ml, aiming for total drawdown around 02:30.'
+            ]
+          }
+        },
+        {
+          name: 'Tubruk Klasik',
+          ratio: '1 : 14 (14g : 200ml)',
+          temp: '94°C – 96°C',
+          grind: 'Medium-Fine',
+          seconds: 240,
+          steps: {
+            id: [
+              'Masukkan 14g bubuk kopi ke dalam cangkir hangat.',
+              'Tuang 200ml air panas secara merata hingga seluruh bubuk terendam.',
+              'Diamkan selama 4 menit agar ampas turun sempurna ke dasar cangkir.',
+              'Aduk perlahan permukaan atas (break crust), buang busa tipis, siap dinikmati.'
+            ],
+            en: [
+              'Add 14g of ground coffee into a pre-warmed mug.',
+              'Pour 200ml of hot water evenly to saturate all grounds.',
+              'Steep undisturbed for 4 minutes so grounds settle cleanly.',
+              'Gently break the top crust, skim light foam, and enjoy.'
+            ]
+          }
+        },
+        {
+          name: 'Espresso',
+          ratio: '1 : 2 (18g : 36g)',
+          temp: '93°C',
+          grind: 'Fine',
+          seconds: 28,
+          steps: {
+            id: [
+              'Giling 18g biji kopi segar ke dalam portafilter kering dan ratakan (WDT).',
+              'Lakukan tamping tegak lurus dengan tekanan konsisten.',
+              'Pasang portafilter dan mulai ekstraksi segera.',
+              'Hentikan ekstraksi pada 36g output dalam rentang 26–30 detik.'
+            ],
+            en: [
+              'Dose 18g freshly ground coffee into a dry portafilter and distribute evenly.',
+              'Tamp level with firm, consistent pressure.',
+              'Lock in the portafilter and start extraction immediately.',
+              'Stop the shot at 36g yield within 26–30 seconds.'
+            ]
+          }
+        },
+        {
+          name: 'Japanese Iced Coffee',
+          ratio: '1 : 15 (20g : 180ml + 120g Es)',
+          temp: '94°C',
+          grind: 'Medium-Fine',
+          seconds: 135,
+          steps: {
+            id: [
+              'Siapkan 120g es batu jernih di dalam server di bawah dripper V60.',
+              'Blooming 20g kopi dengan 50ml air panas selama 35 detik.',
+              'Tuang sisa air panas secara bertahap hingga mencapai 180ml.',
+              'Aduk server hingga es mencair sebagian dan kopi dingin seketika.'
+            ],
+            en: [
+              'Place 120g of clear ice cubes inside the server beneath your V60.',
+              'Bloom 20g of coffee with 50ml hot water for 35 seconds.',
+              'Pour remaining hot water in stages up to 180ml total.',
+              'Swirl the server until chilled and serve immediately.'
+            ]
+          }
+        }
+      ];
+
+      const TESTIMONIALS = [
+        {
+          quote: {
+            id: '“Sindoro Temanggung Natural-nya luar biasa manis saat diseduh V60. Aroma nangka dan gula arennya konsisten di setiap batch yang saya pesan.”',
+            en: '“The Sindoro Temanggung Natural is remarkably sweet on V60. Its jackfruit and palm sugar notes stay consistent in every batch I order.”'
+          },
+          author: 'Dimas Aditya',
+          role: 'Home Brewer — Yogyakarta'
+        },
+        {
+          quote: {
+            id: '“Kedai kami memakai BUMARA Golden Crema Blend untuk menu es kopi susu. Bodinya tebal, tidak tenggelam oleh susu, dan selalu dikirim fresh roast.”',
+            en: '“Our cafe uses BUMARA Golden Crema Blend for iced milk coffee. Thick body, cuts right through milk, and always arrives freshly roasted.”'
+          },
+          author: 'Nadia Kusuma',
+          role: 'Owner Ruang Seduh — Semarang'
+        },
+        {
+          quote: {
+            id: '“Suka banget karena bisa pilih roast level dan gilingan langsung sebelum checkout. Kemasan valve-nya juga menjaga aroma tetap wangi sampai habis.”',
+            en: '“Love being able to pick roast level and grind size right before checkout. The valve bag keeps the aroma vibrant down to the last scoop.”'
+          },
+          author: 'Farhan Hakim',
+          role: 'Coffee Enthusiast — Bandung'
+        }
+      ];
+
+      // Helpers
+      const formatIDR = (num) => 'Rp ' + Math.round(num).toLocaleString('id-ID');
+      const formatTime = (sec) => {
+        const m = String(Math.floor(sec / 60)).padStart(2, '0');
+        const s = String(sec % 60).padStart(2, '0');
+        return `${m}:${s}`;
+      };
+
+      const showToast = (msg) => {
+        const el = document.getElementById('toast');
+        el.textContent = msg;
+        el.classList.add('show');
+        clearTimeout(el._t);
+        el._t = setTimeout(() => el.classList.remove('show'), 2300);
+      };
+
+      const playChime = () => {
+        try {
+          const ctx = new (window.AudioContext || window.webkitAudioContext)();
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(660, ctx.currentTime);
+          gain.gain.setValueAtTime(0.15, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.7);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start();
+          osc.stop(ctx.currentTime + 0.7);
+        } catch (e) {}
+      };
+
+      // Render Products
+      const renderProducts = () => {
+        const grid = document.getElementById('productGrid');
+        const t = I18N[currentLang];
+        const filtered = activeFilter === 'all'
+          ? PRODUCTS
+          : PRODUCTS.filter(p => p.category === activeFilter);
+
+        grid.innerHTML = filtered.map(p => {
+          const sel = productSelections[p.id];
+          const price = p.basePrice200 * SIZE_MULTIPLIER[sel.size];
+
+          return `
+            <article class="product-card liquid-glass">
+              <div class="product-art">
+                <span class="product-tag">${p.tag}</span>
+                <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMG}';" />
+              </div>
+              <div class="product-body">
+                <h3 class="product-title">${p.name}</h3>
+                <div class="product-notes">${p.notes}</div>
+                <p class="product-desc">${p.desc[currentLang]}</p>
+
+                <div class="opt-group">
+                  <span class="opt-label">${t.roastLbl}</span>
+                  <div class="pill-row">
+                    ${['Light', 'Medium', 'Dark'].map(r => `
+                      <button type="button" class="pill-opt ${sel.roast === r ? 'selected' : ''}" data-pid="${p.id}" data-type="roast" data-val="${r}">${r}</button>
+                    `).join('')}
+                  </div>
+                </div>
+
+                <div class="opt-group">
+                  <span class="opt-label">${t.sizeLbl}</span>
+                  <div class="pill-row">
+                    ${['200g', '500g', '1kg'].map(s => `
+                      <button type="button" class="pill-opt ${sel.size === s ? 'selected' : ''}" data-pid="${p.id}" data-type="size" data-val="${s}">${s}</button>
+                    `).join('')}
+                  </div>
+                </div>
+
+                <div class="opt-group">
+                  <label class="opt-label" for="grind-${p.id}">${t.grindLbl}</label>
+                  <select id="grind-${p.id}" class="grind-select" data-pid="${p.id}">
+                    ${GRIND_OPTIONS.map(g => `
+                      <option value="${g.val}" ${sel.grind === g.val ? 'selected' : ''}>${g.label[currentLang]}</option>
+                    `).join('')}
+                  </select>
+                </div>
+
+                <div class="product-footer">
+                  <span class="product-price">${formatIDR(price)}</span>
+                  <button type="button" class="btn btn-primary add-cart-btn" data-pid="${p.id}" style="padding:0.62rem 1.2rem; font-size:0.84rem;">
+                    ${t.addCart}
+                  </button>
+                </div>
+              </div>
+            </article>
+          `;
+        }).join('');
+      };
+
+      // Render Timeline
+      const renderTimeline = () => {
+        const el = document.getElementById('timeline');
+        el.innerHTML = TIMELINE.map(item => `
+          <div class="timeline-item liquid-glass">
+            <div class="timeline-year">${item.year}</div>
+            <h3>${item.title[currentLang]}</h3>
+            <p>${item.desc[currentLang]}</p>
+          </div>
+        `).join('');
+      };
+
+      // Render Brew Guide & Timer
+      const renderBrew = () => {
+        const tabsEl = document.getElementById('btabs');
+        const panelEl = document.getElementById('bpanel');
+        const t = I18N[currentLang];
+        const method = BREW_METHODS[activeBrewIndex];
+
+        tabsEl.innerHTML = BREW_METHODS.map((m, idx) => `
+          <button type="button" class="brew-tab ${idx === activeBrewIndex ? 'active' : ''}" data-bidx="${idx}">
+            ${m.name}
+          </button>
+        `).join('');
+
+        panelEl.innerHTML = `
+          <div>
+            <h3 style="font-size:1.9rem;">${method.name}</h3>
+            <div class="brew-specs">
+              <div class="spec-box"><span>Ratio</span><strong>${method.ratio}</strong></div>
+              <div class="spec-box"><span>Suhu / Temp</span><strong>${method.temp}</strong></div>
+              <div class="spec-box"><span>Grind</span><strong>${method.grind}</strong></div>
+            </div>
+            <ol class="brew-steps">
+              ${method.steps[currentLang].map(step => `<li>${step}</li>`).join('')}
+            </ol>
+          </div>
+          <div class="timer-card">
+            <span class="eyebrow" style="margin-bottom:0.25rem;">Brew Timer</span>
+            <div class="timer-display" id="timerDisplay">${formatTime(timerRemaining)}</div>
+            <div style="font-size:0.84rem; color:var(--muted);">Target: ${formatTime(method.seconds)}</div>
+            <div class="timer-controls">
+              <button type="button" class="btn btn-primary" id="timerToggleBtn" style="padding:0.55rem 1.25rem;">
+                ${timerInterval ? t.timerPause : t.timerStart}
+              </button>
+              <button type="button" class="btn btn-outline" id="timerResetBtn" style="padding:0.55rem 1.15rem;">
+                ${t.timerReset}
+              </button>
+            </div>
+          </div>
+        `;
+      };
+
+      const stopTimer = () => {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      };
+
+      const setBrewMethod = (idx) => {
+        stopTimer();
+        activeBrewIndex = idx;
+        timerSeconds = BREW_METHODS[idx].seconds;
+        timerRemaining = timerSeconds;
+        renderBrew();
+      };
+
+      // Render Testimonials
+      const renderTestimonials = () => {
+        const slidesEl = document.getElementById('slides');
+        const dotsEl = document.getElementById('dots');
+        const item = TESTIMONIALS[activeTestiIndex];
+
+        slidesEl.innerHTML = `
+          <p class="testi-quote">${item.quote[currentLang]}</p>
+          <div class="testi-author">${item.author}</div>
+          <div class="testi-role">${item.role}</div>
+        `;
+
+        dotsEl.innerHTML = TESTIMONIALS.map((_, idx) => `
+          <button type="button" class="dot ${idx === activeTestiIndex ? 'active' : ''}" data-tidx="${idx}" aria-label="Slide ${idx + 1}"></button>
+        `).join('');
+      };
+
+      // Cart Functions
+      const saveCart = () => {
+        localStorage.setItem('bumara_cart', JSON.stringify(cart));
+        updateCartUI();
+      };
+
+      const updateCartUI = () => {
+        const countEl = document.getElementById('cartCount');
+        const itemsEl = document.getElementById('cartItems');
+        const totalEl = document.getElementById('cartTotalVal');
+        const t = I18N[currentLang];
+
+        const totalQty = cart.reduce((acc, item) => acc + item.qty, 0);
+        const totalPrice = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
+
+        countEl.textContent = totalQty;
+        totalEl.textContent = formatIDR(totalPrice);
+
+        if (!cart.length) {
+          itemsEl.innerHTML = `<p style="color:var(--muted); text-align:center; margin-top:2rem;">${t.cartEmpty}</p>`;
+          return;
+        }
+
+        itemsEl.innerHTML = cart.map((item, idx) => `
+          <div class="cart-item">
+            <div>
+              <strong>${item.name}</strong>
+              <div class="cart-item-meta">${item.roast} Roast • ${item.size} • ${item.grind}</div>
+              <div style="color:var(--accent-dark); font-weight:700; font-size:0.9rem; margin-top:0.25rem;">
+                ${formatIDR(item.price * item.qty)}
+              </div>
+              <div class="qty-box">
+                <button type="button" class="qty-btn" data-cact="dec" data-cidx="${idx}">-</button>
+                <span>${item.qty}</span>
+                <button type="button" class="qty-btn" data-cact="inc" data-cidx="${idx}">+</button>
+              </div>
+            </div>
+            <button type="button" class="qty-btn" data-cact="del" data-cidx="${idx}" aria-label="Hapus item">✕</button>
+          </div>
+        `).join('');
+      };
+
+      const addToCart = (pid) => {
+        const p = PRODUCTS.find(x => x.id === pid);
+        if (!p) return;
+        const sel = productSelections[pid];
+        const unitPrice = Math.round(p.basePrice200 * SIZE_MULTIPLIER[sel.size]);
+        const key = `${pid}|${sel.roast}|${sel.size}|${sel.grind}`;
+
+        const existing = cart.find(c => c.key === key);
+        if (existing) {
+          existing.qty += 1;
+        } else {
+          cart.push({
+            key,
+            name: p.name,
+            roast: sel.roast,
+            size: sel.size,
+            grind: sel.grind,
+            price: unitPrice,
+            qty: 1
+          });
+        }
+        saveCart();
+        showToast(I18N[currentLang].toastAdded);
+      };
+
+      const toggleDrawer = (open) => {
+        document.getElementById('cartDrawer').classList.toggle('open', open);
+        document.getElementById('cartBackdrop').classList.toggle('open', open);
+      };
+
+      // Apply Language
+      const applyLanguage = (lang) => {
+        currentLang = lang;
+        document.documentElement.lang = lang;
+        const dict = I18N[lang];
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+
+        document.querySelectorAll('[data-i]').forEach(el => {
+          const k = el.dataset.i;
+          if (dict[k]) el.textContent = dict[k];
+        });
+
+        document.querySelectorAll('[data-ih]').forEach(el => {
+          const k = el.dataset.ih;
+          if (dict[k]) el.innerHTML = dict[k];
+        });
+
+        document.querySelectorAll('[data-ph]').forEach(el => {
+          const k = el.dataset.ph;
+          if (dict[k]) el.placeholder = dict[k];
+        });
+
+        renderProducts();
+        renderTimeline();
+        renderBrew();
+        renderTestimonials();
+        updateCartUI();
+      };
+
+      // Interactive Specular Reflection Tracking on Liquid Glass Surfaces
+      document.addEventListener('pointermove', (e) => {
+        const card = e.target.closest('.liquid-glass');
+        if (!card) return;
+        const rect = card.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        card.style.setProperty('--mx', `${x.toFixed(1)}%`);
+        card.style.setProperty('--my', `${y.toFixed(1)}%`);
+      }, { passive: true });
+
+      // Event Listeners
+      document.addEventListener('click', (e) => {
+        const langBtn = e.target.closest('.lang-btn');
+        if (langBtn) {
+          applyLanguage(langBtn.dataset.lang);
+          return;
+        }
+
+        const filterBtn = e.target.closest('.filter-btn');
+        if (filterBtn) {
+          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          filterBtn.classList.add('active');
+          activeFilter = filterBtn.dataset.filter;
+          renderProducts();
+          return;
+        }
+
+        const pill = e.target.closest('.pill-opt');
+        if (pill) {
+          const { pid, type, val } = pill.dataset;
+          productSelections[pid][type] = val;
+          renderProducts();
+          return;
+        }
+
+        const addBtn = e.target.closest('.add-cart-btn');
+        if (addBtn) {
+          addToCart(addBtn.dataset.pid);
+          return;
+        }
+
+        const btab = e.target.closest('.brew-tab');
+        if (btab) {
+          setBrewMethod(Number(btab.dataset.bidx));
+          return;
+        }
+
+        if (e.target.id === 'timerToggleBtn') {
+          if (timerInterval) {
+            stopTimer();
+            renderBrew();
+          } else {
+            if (timerRemaining <= 0) timerRemaining = timerSeconds;
+            timerInterval = setInterval(() => {
+              timerRemaining -= 1;
+              const disp = document.getElementById('timerDisplay');
+              if (disp) disp.textContent = formatTime(Math.max(0, timerRemaining));
+              if (timerRemaining <= 0) {
+                stopTimer();
+                playChime();
+                showToast(I18N[currentLang].timerDone);
+                renderBrew();
+              }
+            }, 1000);
+            renderBrew();
+          }
+          return;
+        }
+
+        if (e.target.id === 'timerResetBtn') {
+          stopTimer();
+          timerRemaining = timerSeconds;
+          renderBrew();
+          return;
+        }
+
+        if (e.target.id === 'prev') {
+          activeTestiIndex = (activeTestiIndex - 1 + TESTIMONIALS.length) % TESTIMONIALS.length;
+          renderTestimonials();
+          return;
+        }
+        if (e.target.id === 'next') {
+          activeTestiIndex = (activeTestiIndex + 1) % TESTIMONIALS.length;
+          renderTestimonials();
+          return;
+        }
+        const dot = e.target.closest('.dot');
+        if (dot) {
+          activeTestiIndex = Number(dot.dataset.tidx);
+          renderTestimonials();
+          return;
+        }
+
+        if (e.target.closest('#openCartBtn')) {
+          toggleDrawer(true);
+          return;
+        }
+        if (e.target.id === 'closeCartBtn' || e.target.id === 'cartBackdrop') {
+          toggleDrawer(false);
+          return;
+        }
+
+        const cbtn = e.target.closest('[data-cact]');
+        if (cbtn) {
+          const idx = Number(cbtn.dataset.cidx);
+          const act = cbtn.dataset.cact;
+          if (act === 'inc') cart[idx].qty += 1;
+          if (act === 'dec') {
+            cart[idx].qty -= 1;
+            if (cart[idx].qty <= 0) cart.splice(idx, 1);
+          }
+          if (act === 'del') cart.splice(idx, 1);
+          saveCart();
+          return;
+        }
+
+        if (e.target.id === 'checkoutWaBtn') {
+          if (!cart.length) {
+            showToast(I18N[currentLang].cartEmpty);
+            return;
+          }
+          const lines = cart.map((item, i) =>
+            `${i + 1}. ${item.name} (${item.roast}, ${item.size}, ${item.grind}) x${item.qty} = ${formatIDR(item.price * item.qty)}`
+          );
+          const total = cart.reduce((s, x) => s + x.price * x.qty, 0);
+          const msg = `Halo BUMARA Coffee, saya ingin memesan:\n\n${lines.join('\n')}\n\nTotal Estimasi: ${formatIDR(total)}\nMohon info ongkos kirim & pembayarannya. Terima kasih!`;
+          window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+        }
+      });
+
+      document.addEventListener('change', (e) => {
+        if (e.target.classList.contains('grind-select')) {
+          productSelections[e.target.dataset.pid].grind = e.target.value;
+        }
+      });
+
+      document.getElementById('orderForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('custName').value.trim();
+        const city = document.getElementById('custCity').value.trim();
+        const note = document.getElementById('custNote').value.trim();
+        const msgEl = document.getElementById('formMsg');
+        const t = I18N[currentLang];
+
+        if (!name || !city) {
+          msgEl.className = 'form-msg';
+          msgEl.textContent = t.errFill;
+          return;
+        }
+
+        msgEl.className = 'form-msg ok';
+        msgEl.textContent = t.okRedirect;
+
+        let cartSummary = '';
+        if (cart.length) {
+          const total = cart.reduce((s, x) => s + x.price * x.qty, 0);
+          cartSummary = '\n\nPesanan Keranjang:\n' + cart.map(c =>
+            `- ${c.name} (${c.roast}, ${c.size}, ${c.grind}) x${c.qty}`
+          ).join('\n') + `\nTotal: ${formatIDR(total)}`;
+        }
+
+        const waText = `Halo BUMARA Coffee,\nNama: ${name}\nKota Tujuan: ${city}${note ? `\nCatatan: ${note}` : ''}${cartSummary}`;
+        window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waText)}`, '_blank', 'noopener');
+      });
+
+      // IntersectionObserver for Reveal Animation
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      // Dynamic Scroll Morphing: Shrinks Floating Tab Bar & Active Section Highlight
+      const headerEl = document.getElementById('topHeader');
+      const parallaxEl = document.querySelector('[data-speed]');
+      const navAnchors = document.querySelectorAll('.nav-links a');
+      const sections = ['catalog', 'gallery', 'story', 'brew', 'order']
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        headerEl.classList.toggle('scrolled', y > 45);
+
+        if (parallaxEl) {
+          const speed = parseFloat(parallaxEl.dataset.speed) || 0.03;
+          parallaxEl.style.transform = `translateY(${y * speed}px)`;
+        }
+
+        let currentId = '';
+        sections.forEach(sec => {
+          if (y >= sec.offsetTop - 180) {
+            currentId = sec.id;
+          }
+        });
+        navAnchors.forEach(a => {
+          a.classList.toggle('active-link', a.getAttribute('href') === `#${currentId}`);
+        });
+      }, { passive: true });
+
+      // Initial Render
+      applyLanguage('id');
+    })();
+  </script>
+</body>
+</html>
